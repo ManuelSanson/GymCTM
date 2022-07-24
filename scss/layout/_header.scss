@@ -1,0 +1,9 @@
+.encabezado{
+    grid-area: encabezado;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+    background-color: black;
+    color: white;
+}
