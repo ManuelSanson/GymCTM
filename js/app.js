@@ -14,10 +14,16 @@ const calcularRM = (peso, numeroReps) => {
     alert('Tu RM en ' + ejercicio + ' es ' + rm)
 }
 
-const ejercicio = prompt('Selecciona el ejercicio (Sentadillas, Peso Muerto, Dominadas o Pecho Plano)')
-const peso = prompt('Ingresa el peso')
-const numeroReps = prompt('Ingresa el número de repeticiones')
-calcularRM(peso, numeroReps)
+const ejercicio = prompt('Selecciona el ejercicio (Sentadillas, Peso Muerto, Dominadas o Pecho Plano)').toLowerCase()
+
+if (ejercicio == 'sentadillas' || ejercicio == 'peso muerto' || ejercicio == 'dominadas' || ejercicio == 'pecho plano') {
+    const peso = prompt('Ingresa el peso')
+    const numeroReps = prompt('Ingresa el número de repeticiones')
+    calcularRM(peso, numeroReps)
+} else {
+    alert('No elegiste correctamente el ejercicio')
+}
+
 
 
 // Datos del jugador
@@ -31,3 +37,6 @@ class Jugador{
         this.posicion = posicion
     }
 }
+
+const jugador1 = new Jugador ('Manuel Sanson', 'Primera', 27, 168, 70, 'Medioscrum')
+console.log(jugador1)
