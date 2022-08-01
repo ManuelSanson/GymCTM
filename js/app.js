@@ -32,7 +32,6 @@ const jugadores = [
     {nombreCompleto: 'Juan Pedro Torres', division: 'Primera', edad: 28, altura: 175, peso: 82, posicion: 'Centro'},
     {nombreCompleto: 'Facundo Suarez', division: 'Primera', edad: 30, altura: 182, peso: 120, posicion: 'Pilar'},
 ]
-
 console.log(jugadores)
 
 jugadores.push({nombreCompleto: 'Ignacio Iltis', division: 'Primera', edad: 23, altura: 178, peso: 75, posicion: 'Fullback'})
