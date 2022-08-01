@@ -1,19 +1,21 @@
-.containerPesos{
+.containerPesosPercepcion{
     display: grid;
     grid-template-areas:
     "encabezado"
     "navegador"
-    "pesos"
+    "pesosPercepcion"
+    "pie"
     ;
 }
 
-.pesos{
-    grid-area: pesos;
+.pesosPercepcion{
+    grid-area: pesosPercepcion;
     .ejercicios{
         display: flex;
         justify-content: space-around;
         align-items: center;
         margin-top: 80px;
+        margin-bottom: 150px;
         text-align: center;
         .ejercicio{
             h3{
@@ -27,6 +29,21 @@
             h4{
                 margin-top: 15px;
             }
+        }
+    }
+    .percepcion{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: none    
+        ;
+        text-align: center;
+        align-items: center;
+        margin-top: 80px;
+        margin-bottom: 180px;
+        text-align: center;
+        input{
+            width: 150px;
+            text-align: center;
         }
     }
 }

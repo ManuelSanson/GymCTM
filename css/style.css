@@ -22,6 +22,34 @@ h1 {
   background-color: black;
   color: white; }
 
+.navegador {
+  grid-area: navegador;
+  background: linear-gradient(to right, #1e1d1f, black); }
+  .navegador ul {
+    margin: 5px 100px;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none; }
+    .navegador ul li a {
+      color: #fff;
+      text-decoration: none; }
+      .navegador ul li a:hover {
+        background-color: #fff;
+        color: #1e1d1f; }
+
+.pie {
+  grid-area: pie;
+  background: linear-gradient(to right, #1e1d1f, black);
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: none;
+  text-align: center;
+  align-items: center;
+  padding: 15px; }
+  .pie h4 {
+    margin-top: 30px; }
+
 .containerIndex {
   display: grid;
   grid-template-areas: "encabezado" "formularioLogin"; }
@@ -104,27 +132,13 @@ h1 {
           color: #E1BEE7;
           text-decoration: none; }
 
-.navegador {
-  grid-area: navegador;
-  background: linear-gradient(to right, #1e1d1f, black); }
-  .navegador ul {
-    margin: 5px 100px;
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none; }
-    .navegador ul li a {
-      color: #fff;
-      text-decoration: none; }
-      .navegador ul li a:hover {
-        background-color: #fff;
-        color: #1e1d1f; }
-
 .containerPerfil {
   display: grid;
-  grid-template-areas: "encabezado" "navegador" "perfil"; }
+  grid-template-areas: "encabezado" "navegador" "perfil" "pie"; }
 
 .perfil {
-  grid-area: perfil; }
+  grid-area: perfil;
+  margin-bottom: 180px; }
   .perfil .perfilJugador {
     display: flex;
     justify-content: space-evenly;
@@ -158,23 +172,36 @@ h1 {
           text-align: center;
           padding: 12px; }
 
-.containerPesos {
+.containerPesosPercepcion {
   display: grid;
-  grid-template-areas: "encabezado" "navegador" "pesos"; }
+  grid-template-areas: "encabezado" "navegador" "pesosPercepcion" "pie"; }
 
-.pesos {
-  grid-area: pesos; }
-  .pesos .ejercicios {
+.pesosPercepcion {
+  grid-area: pesosPercepcion; }
+  .pesosPercepcion .ejercicios {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 80px;
+    margin-bottom: 150px;
     text-align: center; }
-    .pesos .ejercicios .ejercicio h3 {
+    .pesosPercepcion .ejercicios .ejercicio h3 {
       margin-bottom: 15px; }
-    .pesos .ejercicios .ejercicio input {
+    .pesosPercepcion .ejercicios .ejercicio input {
       width: 100px;
       margin: 15px;
       text-align: center; }
-    .pesos .ejercicios .ejercicio h4 {
+    .pesosPercepcion .ejercicios .ejercicio h4 {
       margin-top: 15px; }
+  .pesosPercepcion .percepcion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: none;
+    text-align: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 180px;
+    text-align: center; }
+    .pesosPercepcion .percepcion input {
+      width: 150px;
+      text-align: center; }

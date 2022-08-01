@@ -4,11 +4,13 @@
     "encabezado"
     "navegador"
     "perfil"
+    "pie"
     ;
 }
 
 .perfil{
     grid-area: perfil;
+    margin-bottom: 180px;
     .perfilJugador{
         display: flex;
         justify-content: space-evenly;

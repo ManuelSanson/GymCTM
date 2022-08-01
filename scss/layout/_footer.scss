@@ -1,0 +1,15 @@
+.pie{
+    grid-area: pie;
+    background: linear-gradient(to right, #1e1d1f, hsl(0, 0%, 0%));
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: none    
+    ;
+    text-align: center;
+    align-items: center;
+    padding: 15px;
+    h4{
+        margin-top: 30px;
+    }
+}

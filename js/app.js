@@ -26,17 +26,18 @@ if (ejercicio == 'sentadillas' || ejercicio == 'peso muerto' || ejercicio == 'do
 
 
 
-// Datos del jugador
-class Jugador{
-    constructor(nombreCompleto, division, edad, altura, peso, posicion){
-        this.nombreCompleto = nombreCompleto
-        this.division = division
-        this.edad = edad
-        this.altura = altura
-        this.peso = peso
-        this.posicion = posicion
-    }
-}
+// Datos de los jugadores
+const jugadores = [
+    {nombreCompleto: 'Manuel Sanson', division: 'Primera', edad: 27, altura: 168, peso: 70, posicion: 'Medioscrum'},
+    {nombreCompleto: 'Juan Pedro Torres', division: 'Primera', edad: 28, altura: 175, peso: 82, posicion: 'Centro'},
+    {nombreCompleto: 'Facundo Suarez', division: 'Primera', edad: 30, altura: 182, peso: 120, posicion: 'Pilar'},
+]
 
-const jugador1 = new Jugador ('Manuel Sanson', 'Primera', 27, 168, 70, 'Medioscrum')
-console.log(jugador1)
+console.log(jugadores)
+
+jugadores.push({nombreCompleto: 'Ignacio Iltis', division: 'Primera', edad: 23, altura: 178, peso: 75, posicion: 'Fullback'})
+console.log(jugadores)
+
+for (const jugador of jugadores) {
+    console.log(jugador.nombreCompleto, jugador.peso)
+}
