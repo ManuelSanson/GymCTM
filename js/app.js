@@ -11,7 +11,7 @@ bienvenidaUsuario(username, password)
 // Funcion calculo de peso maximo
 const calcularRM = (peso, numeroReps) => {
     let rm = peso / (1.0278 - 0.0278 * numeroReps)
-    alert('Tu RM en ' + ejercicio + ' es ' + rm)
+    console.log('Tu RM en ' + ejercicio + ' es ' + rm)
 }
 
 const ejercicio = prompt('Selecciona el ejercicio (Sentadillas, Peso Muerto, Dominadas o Pecho Plano)').toLowerCase()
