@@ -32,7 +32,32 @@
 
     <!-- Inicia main, pesos y percepcion gym -->
     <main class="pesosPercepcion">
+        <h1>Percepción del esfuerzo</h1>
+        <section class="percepcion">
+            <form class="seleccionarDiaRutina">
+                <h3>¿Qué día hiciste hoy?</h3>
+                <select class="diaRutina">
+                    <option selected>Seleccionar</option>
+                    <option value="Dia1">Día 1</option>
+                    <option value="Dia2">Día 2</option>
+                    <option value="Regenerativo">Regenerativo</option>
+                    <option value="Dia4">Día 4</option>
+                    <option value="Dia5">Día 5</option>
+                </select>
+            </form>
+            <form class="tiempoRutina">
+                <h3>¿Cuánto tiempo te llevo la rutina?</h3>
+                <input type="text" placeholder="Minutos">
+            </form>
+            <form class="percepcionRutina">
+                <h3>Ingresa la percepción del esfuerzo</h3>
+                <input type="text" placeholder="1 a 10">
+            </form>
+        </section>
         <h1>Pesos</h1>
+        <div class="buscador">
+            <input type="text" placeholder="Ejercicios">
+        </div>
         <section class="ejercicios">
             <article class="ejercicio">
                 <h3>Sentadillas</h3>
@@ -66,28 +91,6 @@
                 <input type="Repeticiones">
                 <h4>RM (kg): Resultado</h4>
             </article>
-        </section>
-        <h1>Percepción del esfuerzo</h1>
-        <section class="percepcion">
-            <form class="seleccionarDiaRutina">
-                <h3>¿Qué día hiciste hoy?</h3>
-                <select class="diaRutina">
-                    <option selected>Seleccionar</option>
-                    <option value="Dia1">Día 1</option>
-                    <option value="Dia2">Día 2</option>
-                    <option value="Regenerativo">Regenerativo</option>
-                    <option value="Dia4">Día 4</option>
-                    <option value="Dia5">Día 5</option>
-                </select>
-            </form>
-            <form class="tiempoRutina">
-                <h3>¿Cuánto tiempo te llevo la rutina?</h3>
-                <input type="text" placeholder="Minutos">
-            </form>
-            <form class="percepcionRutina">
-                <h3>Ingresa la percepción del esfuerzo</h3>
-                <input type="text" placeholder="1 a 10">
-            </form>
         </section>
     </main>
 

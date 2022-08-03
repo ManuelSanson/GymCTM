@@ -10,6 +10,13 @@
 
 .pesosPercepcion{
     grid-area: pesosPercepcion;
+    .buscador{
+        text-align: center;
+        input{
+            text-align: center;
+            width: 200px;
+        }
+    }
     .ejercicios{
         display: flex;
         justify-content: space-around;
@@ -18,6 +25,9 @@
         margin-bottom: 150px;
         text-align: center;
         .ejercicio{
+            background: linear-gradient(to right, #ffffff, hsl(0, 14%, 91%));
+            border-radius: 20px;
+            padding: 25px;
             h3{
                 margin-bottom: 15px;
             }

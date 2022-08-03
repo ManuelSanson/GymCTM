@@ -7,6 +7,24 @@ const username = prompt('Ingresa tu nombre de usuario')
 const password = prompt('Ingresa tu contraseña')
 bienvenidaUsuario(username, password)
 
+// Datos de los jugadores
+const jugadores = [
+    {nombreCompleto: 'Manuel Sanson', division: 'Primera', edad: 27, altura: 168, peso: 70, posicion: 'Medioscrum'},
+    {nombreCompleto: 'Juan Pedro Torres', division: 'Primera', edad: 28, altura: 175, peso: 82, posicion: 'Centro'},
+    {nombreCompleto: 'Facundo Suarez', division: 'Primera', edad: 30, altura: 182, peso: 120, posicion: 'Pilar'},
+]
+
+jugadores.push({nombreCompleto: 'Ignacio Iltis', division: 'Primera', edad: 23, altura: 178, peso: 75, posicion: 'Fullback'})
+console.log(jugadores)
+
+for (const jugador of jugadores) {
+    console.log(jugador.nombreCompleto, jugador.peso)
+}
+
+// Funcion para buscar jugadores por posicion
+const posicionJugador = jugadores.filter((jugador) => jugador.posicion == 'Pilar')
+console.log(posicionJugador)
+
 
 // Funcion calculo de peso maximo
 const calcularRM = (peso, numeroReps) => {
@@ -22,21 +40,4 @@ if (ejercicio == 'sentadillas' || ejercicio == 'peso muerto' || ejercicio == 'do
     calcularRM(peso, numeroReps)
 } else {
     alert('No elegiste correctamente el ejercicio')
-}
-
-
-
-// Datos de los jugadores
-const jugadores = [
-    {nombreCompleto: 'Manuel Sanson', division: 'Primera', edad: 27, altura: 168, peso: 70, posicion: 'Medioscrum'},
-    {nombreCompleto: 'Juan Pedro Torres', division: 'Primera', edad: 28, altura: 175, peso: 82, posicion: 'Centro'},
-    {nombreCompleto: 'Facundo Suarez', division: 'Primera', edad: 30, altura: 182, peso: 120, posicion: 'Pilar'},
-]
-console.log(jugadores)
-
-jugadores.push({nombreCompleto: 'Ignacio Iltis', division: 'Primera', edad: 23, altura: 178, peso: 75, posicion: 'Fullback'})
-console.log(jugadores)
-
-for (const jugador of jugadores) {
-    console.log(jugador.nombreCompleto, jugador.peso)
 }
