@@ -1,4 +1,5 @@
 // Funcion login y bienvenida
+/*
 const bienvenidaUsuario = (username, password) => {
     console.log('Login exitoso. Bienvenido ' + username)
 }
@@ -6,7 +7,7 @@ const bienvenidaUsuario = (username, password) => {
 const username = prompt('Ingresa tu nombre de usuario')
 const password = prompt('Ingresa tu contraseña')
 bienvenidaUsuario(username, password)
-
+*/
 
 //Template literal de los ejercicios
 class Ejercicio {
