@@ -1,13 +1,71 @@
-// Funcion login y bienvenida
-/*
-const bienvenidaUsuario = (username, password) => {
-    console.log('Login exitoso. Bienvenido ' + username)
+// Formulario registro
+const inputRegistrationEmail = document.querySelector('#registrationEmail')
+const inputRegistrationUsername = document.querySelector('#registrationUsername')
+const inputRegistrationPassword = document.querySelector('#registrationPassword')
+const inputPasswordConfirmation = document.querySelector('#passwordConfirmation')
+
+if (inputRegistrationEmail) {
+    inputRegistrationEmail.addEventListener('change', () => {
+        sessionStorage.setItem('registrationEmail', inputRegistrationEmail.value)
+    })
 }
 
-const username = prompt('Ingresa tu nombre de usuario')
-const password = prompt('Ingresa tu contraseña')
-bienvenidaUsuario(username, password)
-*/
+if (inputRegistrationUsername) {
+    inputRegistrationUsername.addEventListener('change', () => {
+        sessionStorage.setItem('registrationUsername', inputRegistrationUsername.value)
+    })
+}
+
+if (inputPasswordConfirmation) {
+    inputPasswordConfirmation.addEventListener('change', () => {
+        if (inputRegistrationPassword.value == inputPasswordConfirmation.value) {
+            sessionStorage.setItem('registrationPassword', inputRegistrationPassword.value)
+        } else {
+            alert('Las contraseñas son diferentes')
+        }
+    })
+}
+
+
+//Formulario login, verificacion usuario
+const registrationUsername = sessionStorage.getItem('registrationUsername')
+const registrationPassword = sessionStorage.getItem('registrationPassword')
+
+
+const inputLoginUsername = document.querySelector('#loginUsername')
+const inputloginPassword = document.querySelector('#loginPassword')
+
+if (inputLoginUsername) {
+    inputLoginUsername.addEventListener('change', () => {
+        sessionStorage.setItem('loginUsername', inputLoginUsername.value)
+    })
+}
+
+if (inputloginPassword) {
+    inputloginPassword.addEventListener('change', () => {
+        sessionStorage.setItem('loginPassword', inputloginPassword.value)
+    })
+}
+
+const btnIngresar = document.querySelector('#btnIngresar')
+
+if (btnIngresar) {
+    btnIngresar.addEventListener('click', (e) => {
+        e.preventDefault()
+        if (inputLoginUsername.value != '' & inputloginPassword.value != '') {
+            if (inputLoginUsername.value == registrationUsername &  inputloginPassword.value == registrationPassword) {
+                alert('Bienvenido ' + inputLoginUsername.value)
+                btnIngresar.addEventListener('click', location.href='../otherPages/perfilJugador.html')
+            } else {
+                alert('Usuario y/o contraseña incorrectos');
+            }
+        } else{
+            alert('Debes ingresar tu nombre de usuario y contraseña o registrarte')
+        }
+    })
+}
+
+
 
 //Template literal de los ejercicios
 class Ejercicio {
@@ -38,7 +96,9 @@ ejercicios.forEach((ejercicio) => {
         </article>
     `
     nuevaSection.className = 'ejercicio'
-    containerEjercicios.append(nuevaSection)
+    if (containerEjercicios) {
+        containerEjercicios.append(nuevaSection)
+    }
 })
 
 
@@ -68,7 +128,9 @@ const buscarEjercicio = () => {
     })
 } 
 
-buscadorEjercicio.addEventListener('input', buscarEjercicio)
+if (buscadorEjercicio) {
+    buscadorEjercicio.addEventListener('input', buscarEjercicio)
+}
 
 
 // Funcion calculo de peso maximo
