@@ -55,7 +55,7 @@ if (btnIngresar) {
         if (inputLoginUsername.value != '' & inputloginPassword.value != '') {
             if (inputLoginUsername.value == registrationUsername &  inputloginPassword.value == registrationPassword) {
                 alert('Bienvenido ' + inputLoginUsername.value)
-                btnIngresar.addEventListener('click', location.href="../otherPages/perfilJugador.html")
+                btnIngresar.addEventListener('click', location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html")
             } else {
                 alert('Usuario y/o contraseña incorrectos');
             }
