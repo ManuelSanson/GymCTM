@@ -6,20 +6,20 @@ const inputPasswordConfirmation = document.querySelector('#passwordConfirmation'
 
 if (inputRegistrationEmail) {
     inputRegistrationEmail.addEventListener('change', () => {
-        sessionStorage.setItem('registrationEmail', inputRegistrationEmail.value)
+        localStorage.setItem('registrationEmail', inputRegistrationEmail.value)
     })
 }
 
 if (inputRegistrationUsername) {
     inputRegistrationUsername.addEventListener('change', () => {
-        sessionStorage.setItem('registrationUsername', inputRegistrationUsername.value)
+        localStorage.setItem('registrationUsername', inputRegistrationUsername.value)
     })
 }
 
 if (inputPasswordConfirmation) {
     inputPasswordConfirmation.addEventListener('change', () => {
         if (inputRegistrationPassword.value == inputPasswordConfirmation.value) {
-            sessionStorage.setItem('registrationPassword', inputRegistrationPassword.value)
+            localStorage.setItem('registrationPassword', inputRegistrationPassword.value)
         } else {
             alert('Las contraseñas son diferentes')
         }
@@ -28,8 +28,8 @@ if (inputPasswordConfirmation) {
 
 
 //Formulario login, verificacion usuario
-const registrationUsername = sessionStorage.getItem('registrationUsername')
-const registrationPassword = sessionStorage.getItem('registrationPassword')
+const registrationUsername = localStorage.getItem('registrationUsername')
+const registrationPassword = localStorage.getItem('registrationPassword')
 
 
 const inputLoginUsername = document.querySelector('#loginUsername')
