@@ -69,15 +69,16 @@ if (btnIngresar) {
 
 //Template literal de los ejercicios
 class Ejercicio {
-    constructor(nombre) {
+    constructor(id, nombre) {
+        this.id = id
         this.nombre = nombre
     }
 }
 
-const ejercicio1 = new Ejercicio('Sentadillas')
-const ejercicio2 = new Ejercicio('Peso Muerto')
-const ejercicio3 = new Ejercicio('Dominadas')
-const ejercicio4 = new Ejercicio('Pecho Plano')
+const ejercicio1 = new Ejercicio(1, 'Sentadillas')
+const ejercicio2 = new Ejercicio(2, 'Peso Muerto')
+const ejercicio3 = new Ejercicio(3, 'Dominadas')
+const ejercicio4 = new Ejercicio(4, 'Pecho Plano')
 
 const ejercicios = [ejercicio1, ejercicio2, ejercicio3, ejercicio4]
 
@@ -85,14 +86,20 @@ const containerEjercicios = document.querySelector('#ejercicios')
 
 ejercicios.forEach((ejercicio) => {
     const nuevaSection = document.createElement('section')
+    const idPeso = `inputPeso${ejercicio.id}`
+    const idRep = `inputRep${ejercicio.id}`
+    const idbtnCalcularRM = `btnCalcularRM${ejercicio.id}`
+    const idTextoResultadoRM = `textoResultadoRM${ejercicio.id}`
+
     nuevaSection.innerHTML = `
         <article class="ejercicio">
             <h3>${ejercicio.nombre}</h3>
             <h6>Peso (kg)</h6>
-            <input type="Peso">
+            <input type="text" class="inputPeso" id="${idPeso}">
             <h6>Repeticiones</h6>
-            <input type="Repeticiones">
-            <h4>RM (kg): Resultado</h4>
+            <input type="text" class="inputRepeticiones" id="${idRep}">
+            <button class="btnCalcularRM" id="${idbtnCalcularRM}">Calcular RM</button>
+            <h4 id="${idTextoResultadoRM}"> </h4>
         </article>
     `
     nuevaSection.className = 'ejercicio'
@@ -113,38 +120,85 @@ const buscarEjercicio = () => {
 
     resultadoBusqueda.forEach((ejercicio) => {
         const nuevaSection = document.createElement('section')
-        nuevaSection.innerHTML = `
-            <article class="ejercicio">
-                <h3>${ejercicio.nombre}</h3>
-                <h6>Peso (kg)</h6>
-                <input type="text" id="peso${ejercicio.nombre}">
-                <h6>Repeticiones</h6>
-                <input type="text" id="repeticiones${ejercicio.nombre}">
-                <h4>RM (kg): Resultado</h4>
-            </article>
+        const idPeso = `inputPeso${ejercicio.id}`
+        const idRep = `inputRep${ejercicio.id}`
+        const idbtnCalcularRM = `btnCalcularRM${ejercicio.id}`
+        const idTextoResultadoRM = `textoResultadoRM${ejercicio.id}`
+
+    nuevaSection.innerHTML = `
+        <article class="ejercicio">
+            <h3>${ejercicio.nombre}</h3>
+            <h6>Peso (kg)</h6>
+            <input type="text" class="inputPeso" id="${idPeso}">
+            <h6>Repeticiones</h6>
+            <input type="text" class="inputRepeticiones" id="${idRep}">
+            <button class="btnCalcularRM" id="${idbtnCalcularRM}">Calcular RM</button>
+            <h4 id="${idTextoResultadoRM}"> </h4>
+        </article>
         `
         nuevaSection.className = 'ejercicio'
         containerEjercicios.append(nuevaSection)
     })
-} 
+}
 
 if (buscadorEjercicio) {
     buscadorEjercicio.addEventListener('input', buscarEjercicio)
 }
 
 
-// Funcion calculo de peso maximo
-const calcularRM = (peso, numeroReps) => {
-    let rm = peso / (1.0278 - 0.0278 * numeroReps)
-    console.log('Tu RM en ' + ejercicio + ' es ' + rm)
+//Calculo de peso maximo
+const textoResultadoRMSentadillas = document.querySelector('#textoResultadoRM1')
+const textoResultadoRMPM = document.querySelector('#textoResultadoRM2')
+const textoResultadoRMDominadas = document.querySelector('#textoResultadoRM3')
+const textoResultadoRMPechoPlano = document.querySelector('#textoResultadoRM4')
+
+
+const calcularRMSentadillas = (peso, numeroReps) => {
+    const RMSentadillas = Math.ceil(inputPesoSentadillas.value / (1.0278 - 0.0278 * inputRepSentadillas.value))
+    textoResultadoRMSentadillas.innerHTML = `RM (kg): ${RMSentadillas}`
 }
 
-// const ejercicio = prompt('Selecciona el ejercicio (Sentadillas, Peso Muerto, Dominadas o Pecho Plano)').toLowerCase()
+const calcularRMPM = (peso, numeroReps) => {
+    const RMPM = Math.ceil(inputPesoPM.value / (1.0278 - 0.0278 * inputRepPM.value))
+    textoResultadoRMPM.innerHTML = `RM (kg): ${RMPM}`
+}
 
-// if (ejercicio == 'sentadillas' || ejercicio == 'peso muerto' || ejercicio == 'dominadas' || ejercicio == 'pecho plano') {
-//     const peso = prompt('Ingresa el peso')
-//     const numeroReps = prompt('Ingresa el número de repeticiones')
-//     calcularRM(peso, numeroReps)
-// } else {
-//     alert('No elegiste correctamente el ejercicio')
-// }
+const calcularRMDominadas = (peso, numeroReps) => {
+    const RMDominadas = Math.ceil(inputPesoDominadas.value / (1.0278 - 0.0278 * inputRepDominadas.value))
+    textoResultadoRMDominadas.innerHTML = `RM (kg): ${RMDominadas}`
+}
+
+const calcularRMPechoPlano = (peso, numeroReps) => {
+    const RMPechoPlano = Math.ceil(inputPesoPechoPlano.value / (1.0278 - 0.0278 * inputRepPechoPlano.value)) 
+    textoResultadoRMPechoPlano.innerHTML = `RM (kg): ${RMPechoPlano}`
+}
+
+
+const inputPesoSentadillas = document.querySelector('#inputPeso1')
+const inputRepSentadillas = document.querySelector('#inputRep1')
+const btnCalcularRMSentadillas = document.querySelector('#btnCalcularRM1')
+
+const inputPesoPM = document.querySelector('#inputPeso2')
+const inputRepPM = document.querySelector('#inputRep2')
+const btnCalcularRMPM = document.querySelector('#btnCalcularRM2')
+
+const inputPesoDominadas = document.querySelector('#inputPeso3')
+const inputRepDominadas = document.querySelector('#inputRep3')
+const btnCalcularRMDominadas = document.querySelector('#btnCalcularRM3')
+
+const inputPesoPechoPlano = document.querySelector('#inputPeso4')
+const inputRepPechoPlano = document.querySelector('#inputRep4')
+const btnCalcularRMPechoPlano = document.querySelector('#btnCalcularRM4')
+
+
+if (btnCalcularRMSentadillas) {
+    btnCalcularRMSentadillas.addEventListener('click',calcularRMSentadillas)}
+
+if (btnCalcularRMPM) {
+    btnCalcularRMPM.addEventListener('click', calcularRMPM)}
+
+if (btnCalcularRMDominadas) {
+    btnCalcularRMDominadas.addEventListener('click', calcularRMDominadas)}
+
+if (btnCalcularRMPechoPlano) {
+    btnCalcularRMPechoPlano.addEventListener('click', calcularRMPechoPlano)}
