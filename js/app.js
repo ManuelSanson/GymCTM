@@ -18,11 +18,7 @@ if (inputRegistrationUsername) {
 
 if (inputPasswordConfirmation) {
     inputPasswordConfirmation.addEventListener('change', () => {
-        if (inputRegistrationPassword.value == inputPasswordConfirmation.value) {
-            localStorage.setItem('registrationPassword', inputRegistrationPassword.value)
-        } else {
-            alert('Las contraseñas son diferentes')
-        }
+        inputRegistrationPassword.value == inputPasswordConfirmation.value ? localStorage.setItem('registrationPassword', inputRegistrationPassword.value) : alert('Las contraseñas son diferentes')
     })
 }
 
