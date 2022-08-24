@@ -1,3 +1,11 @@
+//Alerts
+const alertError = Swal.mixin({
+        icon: 'error',
+        title: 'Oops...',
+        background: 'url(../img/animalprint.jpg)', 
+        confirmButtonColor: '#000000',
+})
+
 // Formulario registro
 const inputRegistrationEmail = document.querySelector('#registrationEmail')
 const inputRegistrationUsername = document.querySelector('#registrationUsername')
@@ -18,7 +26,10 @@ if (inputRegistrationUsername) {
 
 if (inputPasswordConfirmation) {
     inputPasswordConfirmation.addEventListener('change', () => {
-        inputRegistrationPassword.value == inputPasswordConfirmation.value ? localStorage.setItem('registrationPassword', inputRegistrationPassword.value) : alert('Las contraseñas son diferentes')
+        inputRegistrationPassword.value == inputPasswordConfirmation.value ? localStorage.setItem('registrationPassword', inputRegistrationPassword.value) :
+        alertError.fire({
+            text: 'Las contraseñas son diferentes',
+        })
     })
 }
 
@@ -50,13 +61,20 @@ if (btnIngresar) {
         e.preventDefault()
         if (inputLoginUsername.value != '' & inputloginPassword.value != '') {
             if (inputLoginUsername.value == registrationUsername &  inputloginPassword.value == registrationPassword) {
-                alert('Bienvenido ' + inputLoginUsername.value)
-                btnIngresar.addEventListener('click', location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html")
+                Swal.fire({
+                    text: ('Bienvenido ' + inputLoginUsername.value),
+                    background: 'url(../img/animalprint.jpg)', 
+                    confirmButtonColor: '#000000',
+                }) .then(() => {btnIngresar.addEventListener('click', location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html")})
             } else {
-                alert('Usuario y/o contraseña incorrectos');
+                alertError.fire({
+                    text: 'Usuario y/o contraseña incorrectos',
+                })
             }
         } else{
-            alert('Debes ingresar tu nombre de usuario y contraseña o registrarte')
+            alertError.fire({
+                text: 'Debes ingresar tu nombre de usuario y contraseña o registrarte',
+            })
         }
     })
 }
@@ -198,3 +216,4 @@ if (btnCalcularRMDominadas) {
 
 if (btnCalcularRMPechoPlano) {
     btnCalcularRMPechoPlano.addEventListener('click', calcularRMPechoPlano)}
+
