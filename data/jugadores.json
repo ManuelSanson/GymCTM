@@ -1,0 +1,11 @@
+[
+    {
+        "nombreCompleto": "Manuel Sanson",
+        "division": "Primera",
+        "edad": "27",
+        "altura": "168",
+        "peso": "72",
+        "posicion": "Medioscrum",
+        "foto": "../img/perfil.jpg"
+    }
+]

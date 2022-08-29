@@ -217,3 +217,42 @@ if (btnCalcularRMDominadas) {
 if (btnCalcularRMPechoPlano) {
     btnCalcularRMPechoPlano.addEventListener('click', calcularRMPechoPlano)}
 
+
+
+//Obtener data para tabla de del jugador
+const mostrarDataJugadores = async () => {
+    try {
+        const response = await fetch('../data/jugadores.json')
+        const dataJugadores = await response.json()
+        dataJugadores.forEach((dato) => {
+        
+        const imgJugador = document.querySelector('#imgJugador')
+        imgJugador.innerHTML = `
+        <img src="${dato.foto}" alt="Imagen de perfil">
+        `
+
+        const nombreJugador = document.querySelector('#nombreJugador')
+        nombreJugador.innerHTML = `
+        <h4>${dato.nombreCompleto}</h4>
+        `
+
+        const datosJugador = document.querySelector('#datosJugador')
+        datosJugador.innerHTML = `
+        <td>${dato.nombreCompleto}</td>
+        <td>${dato.division}</td>
+        <td>${dato.edad}</td>
+        <td>${dato.altura}</td>
+        <td>${dato.peso}</td>
+        <td>${dato.posicion}</td>
+    `
+        })
+
+    } catch (error) {
+        alertError.fire({
+            text: 'Lo sentimos, ocurrió un error. Intentalo nuevamente.',
+        })
+        console.log(error)
+    }
+}
+
+mostrarDataJugadores()

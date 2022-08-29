@@ -37,9 +37,11 @@
         <h1>Perfil del Jugador</h1>
         <div class="perfilJugador">
             <div class="cardJugador">
-                <img src="../img/perfil.jpg" alt="Imagen de perfil" style="width:100%">
-                <div class="container">
-                    <h4><b>Manuel Sanson</b></h4>
+                <div id="imgJugador">
+                    <!-- Codigo inyectado JS -->
+                </div>
+                <div class="nombreJugador" id="nombreJugador"> 
+                    <!-- Codigo inyectado JS -->
                 </div>
             </div>
             <table class="tablaJugador">
@@ -51,13 +53,8 @@
                     <th>Peso (kg)</th>
                     <th>Posición</th>
                 </tr>
-                <tr class="datos">
-                    <td>Manuel Sanson</td>
-                    <td>Primera</td>
-                    <td>27</td>
-                    <td>168</td>
-                    <td>70</td>
-                    <td>Medioscrum</td>
+                <tr class="datosJugador" id="datosJugador">
+                <!-- Codigo inyectado JS -->
                 </tr>
             </table>
         </div>
@@ -74,6 +71,8 @@
     <!-- SweetAlert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
+
+    <script src="../data/jugadores.json"></script>
     <script src="../js/app.js"></script>
 
 </body>
