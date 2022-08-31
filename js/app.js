@@ -6,6 +6,16 @@ const alertError = Swal.mixin({
         confirmButtonColor: '#000000',
 })
 
+// Acceder a página de registro
+const btnRegistrarme = document.querySelector('#btnRegistrarme')
+
+if (btnRegistrarme) {
+    btnRegistrarme.addEventListener('click', (e) => {
+        e.preventDefault()
+        location.href="https://manuelsanson.github.io/GymCTM/otherPages/registro.html"
+    })
+}
+
 // Formulario registro
 const inputRegistrationEmail = document.querySelector('#registrationEmail')
 const inputRegistrationUsername = document.querySelector('#registrationUsername')
@@ -33,11 +43,25 @@ if (inputPasswordConfirmation) {
     })
 }
 
+//Confirmar registro y acceder a página de ingreso
+const btnConfirmarRegistro = document.querySelector('#btnConfirmarRegistro')
+
+if (btnConfirmarRegistro) {
+    btnConfirmarRegistro.addEventListener('click', (e) => {
+        e.preventDefault()
+        if (inputRegistrationEmail.value != '' & inputRegistrationUsername.value != '' & inputRegistrationPassword.value != '' & inputRegistrationPassword.value != '') {
+            location.href="https://manuelsanson.github.io/GymCTM/index.html"
+        } else {
+            alertError.fire({
+                text: 'Completa todos los campos',
+            })
+        }
+    })
+}
 
 //Formulario login, verificacion usuario
 const registrationUsername = localStorage.getItem('registrationUsername')
 const registrationPassword = localStorage.getItem('registrationPassword')
-
 
 const inputLoginUsername = document.querySelector('#loginUsername')
 const inputloginPassword = document.querySelector('#loginPassword')
@@ -60,7 +84,7 @@ if (btnIngresar) {
     btnIngresar.addEventListener('click', (e) => {
         e.preventDefault()
         if (inputLoginUsername.value != '' & inputloginPassword.value != '') {
-            if (inputLoginUsername.value == registrationUsername &  inputloginPassword.value == registrationPassword) {
+            if (inputLoginUsername.value == registrationUsername & inputloginPassword.value == registrationPassword) {
                 Swal.fire({
                     text: ('Bienvenido ' + inputLoginUsername.value),
                     background: 'url(../img/animalprint.jpg)', 
@@ -78,8 +102,6 @@ if (btnIngresar) {
         }
     })
 }
-
-
 
 //Template literal de los ejercicios
 class Ejercicio {
@@ -122,7 +144,6 @@ ejercicios.forEach((ejercicio) => {
     }
 })
 
-
 //Buscador de ejercicios
 const buscadorEjercicio = document.querySelector('#buscadorEjercicio')
 
@@ -159,13 +180,11 @@ if (buscadorEjercicio) {
     buscadorEjercicio.addEventListener('input', buscarEjercicio)
 }
 
-
 //Calculo de peso maximo
 const textoResultadoRMSentadillas = document.querySelector('#textoResultadoRM1')
 const textoResultadoRMPM = document.querySelector('#textoResultadoRM2')
 const textoResultadoRMDominadas = document.querySelector('#textoResultadoRM3')
 const textoResultadoRMPechoPlano = document.querySelector('#textoResultadoRM4')
-
 
 const calcularRMSentadillas = (peso, numeroReps) => {
     const RMSentadillas = Math.ceil(inputPesoSentadillas.value / (1.0278 - 0.0278 * inputRepSentadillas.value))
@@ -187,7 +206,6 @@ const calcularRMPechoPlano = (peso, numeroReps) => {
     textoResultadoRMPechoPlano.innerHTML = `RM (kg): ${RMPechoPlano}`
 }
 
-
 const inputPesoSentadillas = document.querySelector('#inputPeso1')
 const inputRepSentadillas = document.querySelector('#inputRep1')
 const btnCalcularRMSentadillas = document.querySelector('#btnCalcularRM1')
@@ -204,7 +222,6 @@ const inputPesoPechoPlano = document.querySelector('#inputPeso4')
 const inputRepPechoPlano = document.querySelector('#inputRep4')
 const btnCalcularRMPechoPlano = document.querySelector('#btnCalcularRM4')
 
-
 if (btnCalcularRMSentadillas) {
     btnCalcularRMSentadillas.addEventListener('click',calcularRMSentadillas)}
 
@@ -217,9 +234,7 @@ if (btnCalcularRMDominadas) {
 if (btnCalcularRMPechoPlano) {
     btnCalcularRMPechoPlano.addEventListener('click', calcularRMPechoPlano)}
 
-
-
-    //Obtener data para tabla del jugador
+//Obtener data para tabla del jugador
 const imgJugador = document.querySelector('#imgJugador')
 const nombreJugador = document.querySelector('#nombreJugador')
 const datosJugador = document.querySelector('#datosJugador')
