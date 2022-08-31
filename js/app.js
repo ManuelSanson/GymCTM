@@ -49,7 +49,7 @@ const btnConfirmarRegistro = document.querySelector('#btnConfirmarRegistro')
 if (btnConfirmarRegistro) {
     btnConfirmarRegistro.addEventListener('click', (e) => {
         e.preventDefault()
-        if (inputRegistrationEmail.value != '' & inputRegistrationUsername.value != '' & inputRegistrationPassword.value != '' & inputRegistrationPassword.value != '') {
+        if (inputRegistrationEmail.value != '' && inputRegistrationUsername.value != '' && inputRegistrationPassword.value != '' && inputRegistrationPassword.value != '') {
             location.href="https://manuelsanson.github.io/GymCTM/index.html"
         } else {
             alertError.fire({
@@ -83,11 +83,11 @@ const btnIngresar = document.querySelector('#btnIngresar')
 if (btnIngresar) {
     btnIngresar.addEventListener('click', (e) => {
         e.preventDefault()
-        if (inputLoginUsername.value != '' & inputloginPassword.value != '') {
-            if (inputLoginUsername.value == registrationUsername & inputloginPassword.value == registrationPassword) {
+        if (inputLoginUsername.value != '' && inputloginPassword.value != '') {
+            if (inputLoginUsername.value == registrationUsername && inputloginPassword.value == registrationPassword) {
                 Swal.fire({
                     text: ('Bienvenido ' + inputLoginUsername.value),
-                    background: 'url(../img/animalprint.jpg)', 
+                    background: 'url(./img/animalprint.jpg)',
                     confirmButtonColor: '#000000',
                 }) .then(() => {btnIngresar.addEventListener('click', location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html")})
             } else {
