@@ -93,11 +93,13 @@ if (btnIngresar) {
             } else {
                 alertError.fire({
                     text: 'Usuario y/o contraseña incorrectos',
+                    background: 'url(./img/animalprint.jpg)'
                 })
             }
         } else{
             alertError.fire({
                 text: 'Debes ingresar tu nombre de usuario y contraseña o registrarte',
+                background: 'url(./img/animalprint.jpg)'
             })
         }
     })
