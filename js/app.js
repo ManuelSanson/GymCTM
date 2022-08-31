@@ -219,24 +219,25 @@ if (btnCalcularRMPechoPlano) {
 
 
 
-//Obtener data para tabla de del jugador
+    //Obtener data para tabla del jugador
+const imgJugador = document.querySelector('#imgJugador')
+const nombreJugador = document.querySelector('#nombreJugador')
+const datosJugador = document.querySelector('#datosJugador')
+
 const mostrarDataJugadores = async () => {
     try {
         const response = await fetch('../data/jugadores.json')
         const dataJugadores = await response.json()
         dataJugadores.forEach((dato) => {
         
-        const imgJugador = document.querySelector('#imgJugador')
         imgJugador.innerHTML = `
         <img src="${dato.foto}" alt="Imagen de perfil">
         `
 
-        const nombreJugador = document.querySelector('#nombreJugador')
         nombreJugador.innerHTML = `
         <h4>${dato.nombreCompleto}</h4>
         `
 
-        const datosJugador = document.querySelector('#datosJugador')
         datosJugador.innerHTML = `
         <td>${dato.nombreCompleto}</td>
         <td>${dato.division}</td>
@@ -255,4 +256,6 @@ const mostrarDataJugadores = async () => {
     }
 }
 
-mostrarDataJugadores()
+if (imgJugador || nombreJugador || datosJugador) {
+    mostrarDataJugadores()
+}
