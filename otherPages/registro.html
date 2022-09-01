@@ -24,16 +24,37 @@
 
 
     <!-- Inicia main, formulario de registro -->
-    <main class="formularioRegistro">
-        <div class="formulario">
-            <p class="register">Registrarse</p>
-            <form class="form1" id="formulario">
-                <input class="mail " type="text" placeholder="Correo electrónico" id="registrationEmail">
-                <input class="un " type="text" placeholder="Nombre de usuario" id="registrationUsername">
-                <input class="pass" type="password" placeholder="Contraseña" id="registrationPassword">
-                <input class="pass" type="password" placeholder="Confirmar contraseña" id="passwordConfirmation">
-                <button type="submit" class="submit" id="btnConfirmarRegistro">Registrarme</button>
-        </div>
+    <main class="registro">
+        <section class="formularioRegistro">
+            <div class="formularioDatos">
+                <p class="register">Datos</p>
+                <form class="form1">
+                    <div class="nombreEdad">
+                        <input class="camposForm" type="text" placeholder="Nombre completo" id="registrationNombreCompleto">
+                        <input class="camposForm" type="text" placeholder="Edad" id="registrationEdad">
+                    </div>
+                    <div class="divisionPosicion">
+                        <input class="camposForm" type="text" placeholder="Division" id="registrationDivision">
+                        <input class="camposForm" type="text" placeholder="Posicion" id="registrationPosicion">
+                    </div>
+                    <div class="alturaPeso">
+                        <input class="camposForm" type="text" placeholder="Altura" id="Altura">
+                        <input class="camposForm" type="text" placeholder="Peso" id="registrationPeso">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="formularioRegistro">
+            <div class="formularioUsuario">
+                <p class="register">Registrarse</p>
+                <form class="form1" id="formulario">
+                    <input class="camposForm" type="text" placeholder="Correo electrónico" id="registrationEmail">
+                    <input class="camposForm" type="text" placeholder="Nombre de usuario" id="registrationUsername">
+                    <input class="camposForm" type="password" placeholder="Contraseña" id="registrationPassword">
+                    <input class="camposForm" type="password" placeholder="Confirmar contraseña" id="passwordConfirmation">
+                    <button type="submit" class="submit" id="btnConfirmarRegistro">Registrarme</button>
+            </div>
+        </section>
     </main>
 
 
