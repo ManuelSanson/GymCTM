@@ -16,24 +16,6 @@ if (btnRegistrarme) {
     })
 }
 
-
-
-/*
-const registrationSelectors = ['inputRegistrationNombreCompleto', 'inputRegistrationEdad', 'inputRegistrationDivision', 'inputRegistrationPosicion', 'inputRegistrationAltura', 'inputRegistrationPeso']
-
-const agregarEventListenerGuardarLocalStorage = () => {
-    registrationSelectors.forEach((selector) => {
-        if (selector) {
-            selector.addEventListener('change', () => {
-                localStorage.setItem(`'${selector}stored'`, selector.value)
-            })
-        }
-    })
-}
-agregarEventListenerGuardarLocalStorage()
-*/
-//REVISAR FUNCION
-
 // Formulario registro
 const inputRegistrationNombreCompleto = document.querySelector('#registrationNombreCompleto')
 const inputRegistrationEdad = document.querySelector('#registrationEdad')
@@ -47,28 +29,6 @@ const inputRegistrationUsername = document.querySelector('#registrationUsername'
 const inputRegistrationPassword = document.querySelector('#registrationPassword')
 const inputPasswordConfirmation = document.querySelector('#passwordConfirmation')
 
-// if (inputRegistrationEmail) {
-//     inputRegistrationEmail.addEventListener('change', () => {
-//         localStorage.setItem('registrationEmail', inputRegistrationEmail.value)
-//     })
-// }
-
-// if (inputRegistrationUsername) {
-//     inputRegistrationUsername.addEventListener('change', () => {
-//         localStorage.setItem('registrationUsername', inputRegistrationUsername.value)
-//     })
-// }
-
-// if (inputPasswordConfirmation) {
-//     inputPasswordConfirmation.addEventListener('change', () => {
-//         inputRegistrationPassword.value == inputPasswordConfirmation.value ? localStorage.setItem('registrationPassword', inputRegistrationPassword.value) :
-//         alertError.fire({
-//             text: 'Las contraseñas son diferentes',
-//         })
-//     })
-// }
-
-//Confirmar registro y acceder a página de ingreso
 const btnConfirmarRegistro = document.querySelector('#btnConfirmarRegistro')
 
 if (btnConfirmarRegistro) {
@@ -105,18 +65,6 @@ const registrationPassword = localStorage.getItem('registrationPassword')
 
 const inputLoginUsername = document.querySelector('#loginUsername')
 const inputloginPassword = document.querySelector('#loginPassword')
-
-if (inputLoginUsername) {
-    inputLoginUsername.addEventListener('change', () => {
-        sessionStorage.setItem('loginUsername', inputLoginUsername.value)
-    })
-}
-
-if (inputloginPassword) {
-    inputloginPassword.addEventListener('change', () => {
-        sessionStorage.setItem('loginPassword', inputloginPassword.value)
-    })
-}
 
 const btnIngresar = document.querySelector('#btnIngresar')
 
