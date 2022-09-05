@@ -77,7 +77,7 @@ if (btnIngresar) {
                     text: ('Bienvenido ' + inputLoginUsername.value),
                     background: 'url(./img/animalprint.jpg)',
                     confirmButtonColor: '#000000',
-                }) .then(() => {btnIngresar.addEventListener('click', location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html")})
+                }) .then(() => location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html")
             } else {
                 alertError.fire({
                     text: 'Usuario y/o contraseña incorrectos',
