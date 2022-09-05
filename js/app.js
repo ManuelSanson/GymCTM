@@ -17,6 +17,27 @@ if (btnRegistrarme) {
 }
 
 // Formulario registro
+const inputRegistrationNombreCompleto = document.querySelector('#registrationNombreCompleto')
+const inputRegistrationEdad = document.querySelector('#registrationEdad')
+const inputRegistrationDivision = document.querySelector('#registrationDivision')
+const inputRegistrationPosicion = document.querySelector('#registrationPosicion')
+const inputRegistrationAltura = document.querySelector('#registrationAltura')
+const inputRegistrationPeso = document.querySelector('#registrationPeso')
+
+const registrationSelectors = ['inputRegistrationNombreCompleto', 'inputRegistrationEdad', 'inputRegistrationDivision', 'inputRegistrationPosicion', 'inputRegistrationAltura', 'inputRegistrationPeso']
+
+const agregarEventListenerGuardarLocalStorage = () => {
+    registrationSelectors.forEach((selector) => {
+        if (selector) {
+            selector.addEventListener('change', () => {
+                localStorage.setItem(`'${selector}stored'`, selector.value)
+            })
+        }
+    })
+}
+agregarEventListenerGuardarLocalStorage()
+//REVISAR FUNCION
+
 const inputRegistrationEmail = document.querySelector('#registrationEmail')
 const inputRegistrationUsername = document.querySelector('#registrationUsername')
 const inputRegistrationPassword = document.querySelector('#registrationPassword')
