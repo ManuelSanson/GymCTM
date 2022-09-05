@@ -16,14 +16,9 @@ if (btnRegistrarme) {
     })
 }
 
-// Formulario registro
-const inputRegistrationNombreCompleto = document.querySelector('#registrationNombreCompleto')
-const inputRegistrationEdad = document.querySelector('#registrationEdad')
-const inputRegistrationDivision = document.querySelector('#registrationDivision')
-const inputRegistrationPosicion = document.querySelector('#registrationPosicion')
-const inputRegistrationAltura = document.querySelector('#registrationAltura')
-const inputRegistrationPeso = document.querySelector('#registrationPeso')
 
+
+/*
 const registrationSelectors = ['inputRegistrationNombreCompleto', 'inputRegistrationEdad', 'inputRegistrationDivision', 'inputRegistrationPosicion', 'inputRegistrationAltura', 'inputRegistrationPeso']
 
 const agregarEventListenerGuardarLocalStorage = () => {
@@ -36,33 +31,42 @@ const agregarEventListenerGuardarLocalStorage = () => {
     })
 }
 agregarEventListenerGuardarLocalStorage()
+*/
 //REVISAR FUNCION
+
+// Formulario registro
+const inputRegistrationNombreCompleto = document.querySelector('#registrationNombreCompleto')
+const inputRegistrationEdad = document.querySelector('#registrationEdad')
+const inputRegistrationDivision = document.querySelector('#registrationDivision')
+const inputRegistrationPosicion = document.querySelector('#registrationPosicion')
+const inputRegistrationAltura = document.querySelector('#registrationAltura')
+const inputRegistrationPeso = document.querySelector('#registrationPeso')
 
 const inputRegistrationEmail = document.querySelector('#registrationEmail')
 const inputRegistrationUsername = document.querySelector('#registrationUsername')
 const inputRegistrationPassword = document.querySelector('#registrationPassword')
 const inputPasswordConfirmation = document.querySelector('#passwordConfirmation')
 
-if (inputRegistrationEmail) {
-    inputRegistrationEmail.addEventListener('change', () => {
-        localStorage.setItem('registrationEmail', inputRegistrationEmail.value)
-    })
-}
+// if (inputRegistrationEmail) {
+//     inputRegistrationEmail.addEventListener('change', () => {
+//         localStorage.setItem('registrationEmail', inputRegistrationEmail.value)
+//     })
+// }
 
-if (inputRegistrationUsername) {
-    inputRegistrationUsername.addEventListener('change', () => {
-        localStorage.setItem('registrationUsername', inputRegistrationUsername.value)
-    })
-}
+// if (inputRegistrationUsername) {
+//     inputRegistrationUsername.addEventListener('change', () => {
+//         localStorage.setItem('registrationUsername', inputRegistrationUsername.value)
+//     })
+// }
 
-if (inputPasswordConfirmation) {
-    inputPasswordConfirmation.addEventListener('change', () => {
-        inputRegistrationPassword.value == inputPasswordConfirmation.value ? localStorage.setItem('registrationPassword', inputRegistrationPassword.value) :
-        alertError.fire({
-            text: 'Las contraseñas son diferentes',
-        })
-    })
-}
+// if (inputPasswordConfirmation) {
+//     inputPasswordConfirmation.addEventListener('change', () => {
+//         inputRegistrationPassword.value == inputPasswordConfirmation.value ? localStorage.setItem('registrationPassword', inputRegistrationPassword.value) :
+//         alertError.fire({
+//             text: 'Las contraseñas son diferentes',
+//         })
+//     })
+// }
 
 //Confirmar registro y acceder a página de ingreso
 const btnConfirmarRegistro = document.querySelector('#btnConfirmarRegistro')
@@ -70,8 +74,23 @@ const btnConfirmarRegistro = document.querySelector('#btnConfirmarRegistro')
 if (btnConfirmarRegistro) {
     btnConfirmarRegistro.addEventListener('click', (e) => {
         e.preventDefault()
-        if (inputRegistrationEmail.value != '' && inputRegistrationUsername.value != '' && inputRegistrationPassword.value != '' && inputRegistrationPassword.value != '') {
-            location.href="https://manuelsanson.github.io/GymCTM/index.html"
+        if (inputRegistrationEmail.value != '' && inputRegistrationUsername.value != '' && inputRegistrationPassword.value != '' && inputRegistrationPassword.value != '' && inputRegistrationNombreCompleto.value != '' && inputRegistrationEdad.value != '' && inputRegistrationDivision.value != '' && inputRegistrationPosicion.value != '' && inputRegistrationAltura.value != '' && inputRegistrationPeso.value != '') {
+            localStorage.setItem('registrationNombreCompleto', inputRegistrationNombreCompleto.value)
+            localStorage.setItem('registrationEdad', inputRegistrationEdad.value)
+            localStorage.setItem('registrationDivision', inputRegistrationDivision.value)
+            localStorage.setItem('registrationPosicion', inputRegistrationPosicion.value)
+            localStorage.setItem('registrationAltura', inputRegistrationAltura.value)
+            localStorage.setItem('registrationPeso', inputRegistrationPeso.value)
+            localStorage.setItem('registrationEmail', inputRegistrationEmail.value)
+            localStorage.setItem('registrationUsername', inputRegistrationUsername.value)
+            if (inputRegistrationPassword.value == inputPasswordConfirmation.value) {
+                localStorage.setItem('registrationPassword', inputRegistrationPassword.value)
+                location.href="https://manuelsanson.github.io/GymCTM/index.html"
+            } else {
+                alertError.fire({
+                text: 'Las contraseñas son diferentes',
+                })
+            }
         } else {
             alertError.fire({
                 text: 'Completa todos los campos',
