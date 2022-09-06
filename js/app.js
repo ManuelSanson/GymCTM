@@ -60,7 +60,7 @@ const btnConfirmarRegistro = document.querySelector('#btnConfirmarRegistro')
 if (btnConfirmarRegistro) {
     btnConfirmarRegistro.addEventListener('click', (e) => {
         e.preventDefault()
-        if (inputRegistrationEmail.value != '' && inputRegistrationUsername.value != '' && inputRegistrationPassword.value != '' && inputRegistrationPassword.value != '' && inputRegistrationNombreCompleto.value != '' && inputRegistrationEdad.value != '' && inputRegistrationDivision.value != '' && inputRegistrationPosicion.value != '' && inputRegistrationAltura.value != '' && inputRegistrationPeso.value != '') {
+        if (inputRegistrationEmail.value != '' && inputRegistrationUsername.value != '' && inputRegistrationPassword.value != '' && inputPasswordConfirmation.value != '' && inputRegistrationNombreCompleto.value != '' && inputRegistrationEdad.value != '' && inputRegistrationDivision.value != '' && inputRegistrationPosicion.value != '' && inputRegistrationAltura.value != '' && inputRegistrationPeso.value != '') {
             if (inputRegistrationPassword.value == inputPasswordConfirmation.value) {
                 const users = JSON.parse(localStorage.getItem('users'))
                 const resultado = users.filter((user) => user.username == inputRegistrationUsername.value)
@@ -70,6 +70,10 @@ if (btnConfirmarRegistro) {
                     localStorage.setItem('users', JSON.stringify(users))
                     location.href="../index.html"
                     //"https://manuelsanson.github.io/GymCTM/index.html"
+                } else {
+                    alertError.fire({
+                        text: 'Ya existe un usuario con este nombre de usuario. Por favor, elegí otro.',
+                        })
                 }
             } else {
                 alertError.fire({
