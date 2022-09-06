@@ -2,7 +2,7 @@
 const alertError = Swal.mixin({
         icon: 'error',
         title: 'Oops...',
-        background: 'url(../img/animalprint.jpg)', 
+        background: 'url(../img/animalprint.jpg)',
         confirmButtonColor: '#000000',
 })
 
@@ -10,7 +10,7 @@ const alertError = Swal.mixin({
 const traerDataUsuario = async () => {
     let users = []
     const existingUsers = localStorage.getItem('users')
-    
+
     if (existingUsers && existingUsers != []) {
         return
     }
@@ -22,7 +22,7 @@ const traerDataUsuario = async () => {
             users.push(dato)
         })
         localStorage.setItem('users', JSON.stringify(users))
-        
+
 
     } catch (error) {
         alertError.fire({
@@ -94,6 +94,7 @@ const btnIngresar = document.querySelector('#btnIngresar')
 if (btnIngresar) {
     btnIngresar.addEventListener('click', (e) => {
         e.preventDefault()
+        sessionStorage.setItem('inputLoginUsernameStored', inputLoginUsername.value)
         const users = JSON.parse(localStorage.getItem('users'))
 
         if (inputLoginUsername.value != '' && inputLoginPassword.value != '') {
@@ -119,6 +120,36 @@ if (btnIngresar) {
             })
         }
     })
+}
+
+//Mostrar datos del jugador en el perfil
+const nombreJugador = document.querySelector('#nombreJugador')
+const datosJugador = document.querySelector('#datosJugador')
+
+const mostrarDataJugadores = () => {
+    const users = JSON.parse(localStorage.getItem('users'))
+    const inputLoginUsernameStored = sessionStorage.getItem('inputLoginUsernameStored')
+    const resultado = users.filter((user) => user.username == inputLoginUsernameStored)
+    if (resultado.length == 1) {
+        resultado.forEach((dato) => {
+            nombreJugador.innerHTML = `
+                <h4>${dato.username}</h4>
+            `
+            datosJugador.innerHTML = `
+                <td>${dato.nombreCompleto}</td>
+                <td>${dato.division}</td>
+                <td>${dato.edad}</td>
+                <td>${dato.altura}</td>
+                <td>${dato.peso}</td>
+                <td>${dato.posicion}</td>
+    `
+        })
+    }
+    console.log(resultado);
+}
+
+if (nombreJugador || datosJugador) {
+    mostrarDataJugadores()
 }
 
 //Template literal de los ejercicios
@@ -220,7 +251,7 @@ const calcularRMDominadas = (peso, numeroReps) => {
 }
 
 const calcularRMPechoPlano = (peso, numeroReps) => {
-    const RMPechoPlano = Math.ceil(inputPesoPechoPlano.value / (1.0278 - 0.0278 * inputRepPechoPlano.value)) 
+    const RMPechoPlano = Math.ceil(inputPesoPechoPlano.value / (1.0278 - 0.0278 * inputRepPechoPlano.value))
     textoResultadoRMPechoPlano.innerHTML = `RM (kg): ${RMPechoPlano}`
 }
 
@@ -262,3 +293,10 @@ if (btnCerrarSesion) {
         //"https://manuelsanson.github.io/GymCTM/index.html"
     })
 }
+
+//Percepción del esfuerzo
+/*
+console.log(document.querySelector('#diaRutina option:checked').value)
+
+const tiempoRutina = document.querySelector('#tiempoRutina')
+*/

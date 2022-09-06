@@ -18,19 +18,13 @@
         .cardJugador {
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             transition: 0.3s;
-            width: 30%;
-            &:hover {
-                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            width: 300px;
+            .nombreJugador {
+                padding: 20px 16px;
+                background: linear-gradient(to right, #1e1d1f, hsl(0, 0%, 0%));
+                color: #fff;
+                text-align: center;
             }
-            img{
-                width: 100%;
-            }
-        }
-        .nombreJugador {
-            padding: 2px 16px;
-            background: linear-gradient(to right, #1e1d1f, hsl(0, 0%, 0%));
-            color: #fff;
-            text-align: center;
         }
         .tablaJugador{
             border-collapse: collapse;

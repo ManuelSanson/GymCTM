@@ -26,7 +26,7 @@ h1 {
     margin-left: 1200px;
     background-color: #b32a2a;
     color: white;
-    border-radius: 20%;
+    border-radius: 20px;
     padding: 5px; }
 
 .navegador {
@@ -299,16 +299,12 @@ h1 {
     .perfil .perfilJugador .cardJugador {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       transition: 0.3s;
-      width: 30%; }
-      .perfil .perfilJugador .cardJugador:hover {
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
-      .perfil .perfilJugador .cardJugador img {
-        width: 100%; }
-    .perfil .perfilJugador .nombreJugador {
-      padding: 2px 16px;
-      background: linear-gradient(to right, #1e1d1f, black);
-      color: #fff;
-      text-align: center; }
+      width: 300px; }
+      .perfil .perfilJugador .cardJugador .nombreJugador {
+        padding: 20px 16px;
+        background: linear-gradient(to right, #1e1d1f, black);
+        color: #fff;
+        text-align: center; }
     .perfil .perfilJugador .tablaJugador {
       border-collapse: collapse;
       width: 60%;
