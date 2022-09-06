@@ -62,9 +62,35 @@
         margin-top: 80px;
         margin-bottom: 180px;
         text-align: center;
+        .diaRutina{
+            width: 250px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: #39373b42;
+            border: #1e1d1f;
+            option{
+                text-align: center;
+                font-weight: bold;
+                color: black;
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+        }
         input{
-            width: 150px;
+            width: 250px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: rgba(57, 55, 59, 0.259);
             text-align: center;
+            font-weight: bold;
+            color: black;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border: #1e1d1f;
+        }
+        input::placeholder{
+            color: black;
+            font-weight: bold;
         }
     }
 }

@@ -9,6 +9,11 @@ const alertError = Swal.mixin({
 //Obtener data de usuario por defecto
 const traerDataUsuario = async () => {
     let users = []
+    const existingUsers = localStorage.getItem('users')
+    
+    if (existingUsers && existingUsers != []) {
+        return
+    }
 
     try {
         const response = await fetch('../data/jugadores.json')
@@ -28,55 +33,14 @@ const traerDataUsuario = async () => {
 }
 addEventListener('load', traerDataUsuario)
 
-/*
-const imgJugador = document.querySelector('#imgJugador')
-const nombreJugador = document.querySelector('#nombreJugador')
-const datosJugador = document.querySelector('#datosJugador')
-
-const mostrarDataJugadores = async () => {
-    try {
-        const response = await fetch('../data/jugadores.json')
-        const dataJugadores = await response.json()
-        dataJugadores.forEach((dato) => {
-        
-        imgJugador.innerHTML = `
-        <img src="${dato.foto}" alt="Imagen de perfil">
-        `
-
-        nombreJugador.innerHTML = `
-        <h4>${dato.nombreCompleto}</h4>
-        `
-
-        datosJugador.innerHTML = `
-        <td>${dato.nombreCompleto}</td>
-        <td>${dato.division}</td>
-        <td>${dato.edad}</td>
-        <td>${dato.altura}</td>
-        <td>${dato.peso}</td>
-        <td>${dato.posicion}</td>
-    `
-        })
-
-    } catch (error) {
-        alertError.fire({
-            text: 'Lo sentimos, ocurrió un error. Intentalo nuevamente.',
-        })
-        console.log(error)
-    }
-}
-
-if (imgJugador || nombreJugador || datosJugador) {
-    mostrarDataJugadores()
-}
-*/
-
 // Acceder a página de registro
 const btnRegistrarme = document.querySelector('#btnRegistrarme')
 
 if (btnRegistrarme) {
     btnRegistrarme.addEventListener('click', (e) => {
         e.preventDefault()
-        location.href="https://manuelsanson.github.io/GymCTM/otherPages/registro.html"
+        location.href="../otherPages/registro.html"
+        //"https://manuelsanson.github.io/GymCTM/otherPages/registro.html"
     })
 }
 
@@ -97,17 +61,16 @@ if (btnConfirmarRegistro) {
     btnConfirmarRegistro.addEventListener('click', (e) => {
         e.preventDefault()
         if (inputRegistrationEmail.value != '' && inputRegistrationUsername.value != '' && inputRegistrationPassword.value != '' && inputRegistrationPassword.value != '' && inputRegistrationNombreCompleto.value != '' && inputRegistrationEdad.value != '' && inputRegistrationDivision.value != '' && inputRegistrationPosicion.value != '' && inputRegistrationAltura.value != '' && inputRegistrationPeso.value != '') {
-            localStorage.setItem('registrationNombreCompleto', inputRegistrationNombreCompleto.value)
-            localStorage.setItem('registrationEdad', inputRegistrationEdad.value)
-            localStorage.setItem('registrationDivision', inputRegistrationDivision.value)
-            localStorage.setItem('registrationPosicion', inputRegistrationPosicion.value)
-            localStorage.setItem('registrationAltura', inputRegistrationAltura.value)
-            localStorage.setItem('registrationPeso', inputRegistrationPeso.value)
-            localStorage.setItem('registrationEmail', inputRegistrationEmail.value)
-            localStorage.setItem('registrationUsername', inputRegistrationUsername.value)
             if (inputRegistrationPassword.value == inputPasswordConfirmation.value) {
-                localStorage.setItem('registrationPassword', inputRegistrationPassword.value)
-                location.href="https://manuelsanson.github.io/GymCTM/index.html"
+                const users = JSON.parse(localStorage.getItem('users'))
+                const resultado = users.filter((user) => user.username == inputRegistrationUsername.value)
+                const newUser = {username: inputRegistrationUsername.value, password: inputRegistrationPassword.value, email: inputRegistrationEmail.value, nombreCompleto: inputRegistrationNombreCompleto.value, edad: inputRegistrationEdad.value, division: inputRegistrationDivision.value, posicion: inputRegistrationPosicion.value, altura: inputRegistrationAltura.value, peso: inputRegistrationPeso.value}
+                if (resultado.length == 0) {
+                    users.push(newUser)
+                    localStorage.setItem('users', JSON.stringify(users))
+                    location.href="../index.html"
+                    //"https://manuelsanson.github.io/GymCTM/index.html"
+                }
             } else {
                 alertError.fire({
                 text: 'Las contraseñas son diferentes',
@@ -132,21 +95,17 @@ if (btnIngresar) {
     btnIngresar.addEventListener('click', (e) => {
         e.preventDefault()
         const users = JSON.parse(localStorage.getItem('users'))
-        
-        users.filter((user) => user.username == inputLoginUsername.value && user.password == inputLoginPassword.value)
-        
-        
-        if (inputLoginUsername.value != '' && inputLoginPassword.value != '') {
-            if (inputLoginUsername.value == username && inputLoginPassword.value == password) {
-                console.log('hola');
-            }
 
-            if (inputLoginUsername.value == registrationUsername && inputLoginPassword.value == registrationPassword) {
+        if (inputLoginUsername.value != '' && inputLoginPassword.value != '') {
+            const resultado = users.filter((user) => user.username == inputLoginUsername.value && user.password == inputLoginPassword.value)
+            if (resultado.length == 1) {
                 Swal.fire({
                     text: ('Bienvenido ' + inputLoginUsername.value),
                     background: 'url(./img/animalprint.jpg)',
                     confirmButtonColor: '#000000',
-                }) .then(() => location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html")
+                }) .then(() => location.href="../otherPages/perfilJugador.html"
+                //"https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html"
+                )
             } else {
                 alertError.fire({
                     text: 'Usuario y/o contraseña incorrectos',
@@ -296,7 +255,10 @@ if (btnCalcularRMPechoPlano) {
 //Cerrar sesion
 const btnCerrarSesion = document.querySelector('#btnCerrarSesion')
 
-btnCerrarSesion.addEventListener('click', (e) => {
-    e.preventDefault()
-    location.href="https://manuelsanson.github.io/GymCTM/index.html"
-})
+if (btnCerrarSesion) {
+    btnCerrarSesion.addEventListener('click', (e) => {
+        e.preventDefault()
+        location.href="../index.html"
+        //"https://manuelsanson.github.io/GymCTM/index.html"
+    })
+}

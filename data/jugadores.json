@@ -2,12 +2,13 @@
     {
         "username": "Manu9",
         "password": "123",
+        "email": "msanson@mail.com",
         "nombreCompleto": "Manuel Sanson",
-        "division": "Primera",
         "edad": "27",
+        "division": "Primera",
+        "posicion": "Medioscrum",
         "altura": "168",
         "peso": "72",
-        "posicion": "Medioscrum",
         "foto": "../img/perfil.jpg"
     }
 ]
