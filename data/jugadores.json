@@ -1,6 +1,7 @@
 [
     {
-        "id": "001",
+        "username": "Manu9",
+        "password": "123",
         "nombreCompleto": "Manuel Sanson",
         "division": "Primera",
         "edad": "27",

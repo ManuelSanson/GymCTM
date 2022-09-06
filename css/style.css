@@ -21,6 +21,13 @@ h1 {
   padding: 15px;
   background-color: black;
   color: white; }
+  .encabezado button {
+    position: absolute;
+    margin-left: 1200px;
+    background-color: #b32a2a;
+    color: white;
+    border-radius: 20%;
+    padding: 5px; }
 
 .navegador {
   grid-area: navegador;

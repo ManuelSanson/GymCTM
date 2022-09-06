@@ -6,6 +6,70 @@ const alertError = Swal.mixin({
         confirmButtonColor: '#000000',
 })
 
+//Obtener data de usuario por defecto
+const traerDataUsuario = async () => {
+    let users = []
+
+    try {
+        const response = await fetch('../data/jugadores.json')
+        const dataUsuario = await response.json()
+        dataUsuario.forEach((dato) => {
+            users.push(dato)
+        })
+        localStorage.setItem('users', JSON.stringify(users))
+        
+
+    } catch (error) {
+        alertError.fire({
+            text: 'Lo sentimos, ocurrió un error. Intentalo nuevamente.',
+        })
+        console.log(error)
+    }
+}
+addEventListener('load', traerDataUsuario)
+
+/*
+const imgJugador = document.querySelector('#imgJugador')
+const nombreJugador = document.querySelector('#nombreJugador')
+const datosJugador = document.querySelector('#datosJugador')
+
+const mostrarDataJugadores = async () => {
+    try {
+        const response = await fetch('../data/jugadores.json')
+        const dataJugadores = await response.json()
+        dataJugadores.forEach((dato) => {
+        
+        imgJugador.innerHTML = `
+        <img src="${dato.foto}" alt="Imagen de perfil">
+        `
+
+        nombreJugador.innerHTML = `
+        <h4>${dato.nombreCompleto}</h4>
+        `
+
+        datosJugador.innerHTML = `
+        <td>${dato.nombreCompleto}</td>
+        <td>${dato.division}</td>
+        <td>${dato.edad}</td>
+        <td>${dato.altura}</td>
+        <td>${dato.peso}</td>
+        <td>${dato.posicion}</td>
+    `
+        })
+
+    } catch (error) {
+        alertError.fire({
+            text: 'Lo sentimos, ocurrió un error. Intentalo nuevamente.',
+        })
+        console.log(error)
+    }
+}
+
+if (imgJugador || nombreJugador || datosJugador) {
+    mostrarDataJugadores()
+}
+*/
+
 // Acceder a página de registro
 const btnRegistrarme = document.querySelector('#btnRegistrarme')
 
@@ -23,12 +87,10 @@ const inputRegistrationDivision = document.querySelector('#registrationDivision'
 const inputRegistrationPosicion = document.querySelector('#registrationPosicion')
 const inputRegistrationAltura = document.querySelector('#registrationAltura')
 const inputRegistrationPeso = document.querySelector('#registrationPeso')
-
 const inputRegistrationEmail = document.querySelector('#registrationEmail')
 const inputRegistrationUsername = document.querySelector('#registrationUsername')
 const inputRegistrationPassword = document.querySelector('#registrationPassword')
 const inputPasswordConfirmation = document.querySelector('#passwordConfirmation')
-
 const btnConfirmarRegistro = document.querySelector('#btnConfirmarRegistro')
 
 if (btnConfirmarRegistro) {
@@ -62,17 +124,24 @@ if (btnConfirmarRegistro) {
 //Formulario login, verificacion usuario
 const registrationUsername = localStorage.getItem('registrationUsername')
 const registrationPassword = localStorage.getItem('registrationPassword')
-
 const inputLoginUsername = document.querySelector('#loginUsername')
-const inputloginPassword = document.querySelector('#loginPassword')
-
+const inputLoginPassword = document.querySelector('#loginPassword')
 const btnIngresar = document.querySelector('#btnIngresar')
 
 if (btnIngresar) {
     btnIngresar.addEventListener('click', (e) => {
         e.preventDefault()
-        if (inputLoginUsername.value != '' && inputloginPassword.value != '') {
-            if (inputLoginUsername.value == registrationUsername && inputloginPassword.value == registrationPassword) {
+        const users = JSON.parse(localStorage.getItem('users'))
+        
+        users.filter((user) => user.username == inputLoginUsername.value && user.password == inputLoginPassword.value)
+        
+        
+        if (inputLoginUsername.value != '' && inputLoginPassword.value != '') {
+            if (inputLoginUsername.value == username && inputLoginPassword.value == password) {
+                console.log('hola');
+            }
+
+            if (inputLoginUsername.value == registrationUsername && inputLoginPassword.value == registrationPassword) {
                 Swal.fire({
                     text: ('Bienvenido ' + inputLoginUsername.value),
                     background: 'url(./img/animalprint.jpg)',
@@ -224,43 +293,10 @@ if (btnCalcularRMDominadas) {
 if (btnCalcularRMPechoPlano) {
     btnCalcularRMPechoPlano.addEventListener('click', calcularRMPechoPlano)}
 
-//Obtener data para tabla del jugador
-const imgJugador = document.querySelector('#imgJugador')
-const nombreJugador = document.querySelector('#nombreJugador')
-const datosJugador = document.querySelector('#datosJugador')
+//Cerrar sesion
+const btnCerrarSesion = document.querySelector('#btnCerrarSesion')
 
-const mostrarDataJugadores = async () => {
-    try {
-        const response = await fetch('../data/jugadores.json')
-        const dataJugadores = await response.json()
-        dataJugadores.forEach((dato) => {
-        
-        imgJugador.innerHTML = `
-        <img src="${dato.foto}" alt="Imagen de perfil">
-        `
-
-        nombreJugador.innerHTML = `
-        <h4>${dato.nombreCompleto}</h4>
-        `
-
-        datosJugador.innerHTML = `
-        <td>${dato.nombreCompleto}</td>
-        <td>${dato.division}</td>
-        <td>${dato.edad}</td>
-        <td>${dato.altura}</td>
-        <td>${dato.peso}</td>
-        <td>${dato.posicion}</td>
-    `
-        })
-
-    } catch (error) {
-        alertError.fire({
-            text: 'Lo sentimos, ocurrió un error. Intentalo nuevamente.',
-        })
-        console.log(error)
-    }
-}
-
-if (imgJugador || nombreJugador || datosJugador) {
-    mostrarDataJugadores()
-}
+btnCerrarSesion.addEventListener('click', (e) => {
+    e.preventDefault()
+    location.href="https://manuelsanson.github.io/GymCTM/index.html"
+})
