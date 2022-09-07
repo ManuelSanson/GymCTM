@@ -98,12 +98,11 @@ const btnIngresar = document.querySelector('#btnIngresar')
 if (btnIngresar) {
     btnIngresar.addEventListener('click', (e) => {
         e.preventDefault()
-        sessionStorage.setItem('inputLoginUsernameStored', inputLoginUsername.value)
         const users = JSON.parse(localStorage.getItem('users'))
-
         if (inputLoginUsername.value != '' && inputLoginPassword.value != '') {
             const resultado = users.filter((user) => user.username == inputLoginUsername.value && user.password == inputLoginPassword.value)
             if (resultado.length == 1) {
+                sessionStorage.setItem('inputLoginUsernameStored', inputLoginUsername.value)
                 Swal.fire({
                     text: ('Bienvenido ' + inputLoginUsername.value),
                     background: 'url(./img/animalprint.jpg)',
@@ -137,7 +136,7 @@ const mostrarDataJugadores = () => {
     if (resultado.length == 1) {
         resultado.forEach((dato) => {
             nombreJugador.innerHTML = `
-                <h4>${dato.username}</h4>
+                <h4>Hola, ${dato.username}</h4>
             `
             datosJugador.innerHTML = `
                 <td>${dato.nombreCompleto}</td>
@@ -160,24 +159,30 @@ const selectDiaRutina = document.querySelector('#selectDiaRutina')
 const inputTiempoRutina = document.querySelector('#inputTiempoRutina')
 const inputPercepcionRutina = document.querySelector('#inputPercepcionRutina')
 const btnRegistroEntrenamiento = document.querySelector('#btnRegistroEntrenamiento')
-const selectedDiaRutina = selectDiaRutina.value
 
 if (btnRegistroEntrenamiento) {
     btnRegistroEntrenamiento.addEventListener('click', (e) => {
         e.preventDefault
         if (selectDiaRutina.value != '' && selectDiaRutina.value != 'Seleccionar' && inputTiempoRutina.value != '' && inputPercepcionRutina.value != '') {
-            Swal.fire({
-                title: '¡Bien entrenado!',
-                text: `Hiciste el ${selectDiaRutina.value}. Te llevó ${inputTiempoRutina.value} minutos y tu percepción del esfuerzo fue ${inputPercepcionRutina.value}.`,
-                background: 'url(../img/animalprint.jpg)',
-                confirmButtonColor: '#000000',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                }
-            })
+            if (inputPercepcionRutina.value > 0 && inputPercepcionRutina.value <= 10) {
+                Swal.fire({
+                    title: '¡Bien entrenado!',
+                    text: `Hiciste el ${selectDiaRutina.value}. Te llevó ${inputTiempoRutina.value} minutos y tu percepción del esfuerzo fue ${inputPercepcionRutina.value}.`,
+                    background: 'url(../img/animalprint.jpg)',
+                    confirmButtonColor: '#000000',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+            } else {
+                alertError.fire({
+                    text: 'La percepción debe ser del 1 al 10',
+                    background: 'url(../img/animalprint.jpg)'
+                })
+            }
         } else{
             alertError.fire({
                 text: 'Debes llenar todos los campos',
@@ -186,11 +191,6 @@ if (btnRegistroEntrenamiento) {
         }
     })
 }
-
-/*
-console.log(document.querySelector('#diaRutina option:checked').value)
-
-*/
 
 //Template literal de los ejercicios
 class Ejercicio {
