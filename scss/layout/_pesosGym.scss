@@ -76,14 +76,14 @@
             font-weight: bold;
         }
     }
-    .ejercicios{
+    .containerEjercicios{
         display: flex;
         justify-content: space-around;
         align-items: center;
         margin-top: 80px;
         margin-bottom: 150px;
         text-align: center;
-        .ejercicio{
+        .ejercicioArticle{
             background: linear-gradient(to right, #ffffff, hsl(0, 14%, 91%));
             border-radius: 20px;
             padding: 25px;

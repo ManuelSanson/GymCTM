@@ -415,33 +415,33 @@ h1 {
     .pesosPercepcion .buscador input::placeholder {
       color: black;
       font-weight: bold; }
-  .pesosPercepcion .ejercicios {
+  .pesosPercepcion .containerEjercicios {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 80px;
     margin-bottom: 150px;
     text-align: center; }
-    .pesosPercepcion .ejercicios .ejercicio {
+    .pesosPercepcion .containerEjercicios .ejercicioArticle {
       background: linear-gradient(to right, #ffffff, #ebe5e5);
       border-radius: 20px;
       padding: 25px;
       display: flex;
       flex-direction: column; }
-      .pesosPercepcion .ejercicios .ejercicio h3 {
+      .pesosPercepcion .containerEjercicios .ejercicioArticle h3 {
         margin-bottom: 15px; }
-      .pesosPercepcion .ejercicios .ejercicio input {
+      .pesosPercepcion .containerEjercicios .ejercicioArticle input {
         width: 100px;
         margin: 15px;
         text-align: center;
         padding: 8px;
         border-radius: 15px; }
-      .pesosPercepcion .ejercicios .ejercicio button {
+      .pesosPercepcion .containerEjercicios .ejercicioArticle button {
         border-radius: 10px;
         padding: 8px;
         margin: 15px; }
-        .pesosPercepcion .ejercicios .ejercicio button:hover {
+        .pesosPercepcion .containerEjercicios .ejercicioArticle button:hover {
           background: linear-gradient(to right, #1e1d1f, black);
           color: white; }
-      .pesosPercepcion .ejercicios .ejercicio h4 {
+      .pesosPercepcion .containerEjercicios .ejercicioArticle h4 {
         margin-top: 15px; }

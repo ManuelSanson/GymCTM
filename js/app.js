@@ -88,7 +88,7 @@ if (btnConfirmarRegistro) {
     })
 }
 
-//Formulario login, verificacion usuario
+//Formulario login, verificación usuario
 const registrationUsername = localStorage.getItem('registrationUsername')
 const registrationPassword = localStorage.getItem('registrationPassword')
 const inputLoginUsername = document.querySelector('#loginUsername')
@@ -207,7 +207,7 @@ const ejercicio4 = new Ejercicio(4, 'Pecho Plano')
 
 const ejercicios = [ejercicio1, ejercicio2, ejercicio3, ejercicio4]
 
-const containerEjercicios = document.querySelector('#ejercicios')
+const containerEjercicios = document.querySelector('#containerEjercicios')
 
 ejercicios.forEach((ejercicio) => {
     const nuevaSection = document.createElement('section')
@@ -217,7 +217,7 @@ ejercicios.forEach((ejercicio) => {
     const idTextoResultadoRM = `textoResultadoRM${ejercicio.id}`
 
     nuevaSection.innerHTML = `
-        <article class="ejercicio">
+        <article class="ejercicioArticle">
             <h3>${ejercicio.nombre}</h3>
             <h6>Peso (kg)</h6>
             <input type="text" class="inputPeso" id="${idPeso}">
@@ -228,6 +228,7 @@ ejercicios.forEach((ejercicio) => {
         </article>
     `
     nuevaSection.className = 'ejercicio'
+    nuevaSection.id = ejercicio.id
     if (containerEjercicios) {
         containerEjercicios.append(nuevaSection)
     }
@@ -237,39 +238,22 @@ ejercicios.forEach((ejercicio) => {
 const buscadorEjercicio = document.querySelector('#buscadorEjercicio')
 
 const buscarEjercicio = () => {
-    document.querySelectorAll('.ejercicio').forEach(ejercicio => ejercicio.remove())
-
+    const ejerciciosBorrados = document.querySelectorAll('.ejercicio')
+    ejerciciosBorrados.forEach(ejercicio => ejercicio.style.display = 'none')
+    const arrayEjercicios = Array.prototype.slice.call(ejerciciosBorrados);
     const busqueda = buscadorEjercicio.value
-    const resultadoBusqueda = ejercicios.filter((ejercicio) => ejercicio.nombre.toLowerCase().includes(busqueda))
+    const resultadoBusqueda = ejercicios.filter((ejercicio) => ejercicio.nombre.toLowerCase().includes(busqueda)).map(({id}) => id)
 
-    resultadoBusqueda.forEach((ejercicio) => {
-        const nuevaSection = document.createElement('section')
-        const idPeso = `inputPeso${ejercicio.id}`
-        const idRep = `inputRep${ejercicio.id}`
-        const idbtnCalcularRM = `btnCalcularRM${ejercicio.id}`
-        const idTextoResultadoRM = `textoResultadoRM${ejercicio.id}`
+    const ejerciciosFiltrados = arrayEjercicios.filter(({id}) => resultadoBusqueda.includes(Number(id)))
 
-    nuevaSection.innerHTML = `
-        <article class="ejercicio">
-            <h3>${ejercicio.nombre}</h3>
-            <h6>Peso (kg)</h6>
-            <input type="text" class="inputPeso" id="${idPeso}">
-            <h6>Repeticiones</h6>
-            <input type="text" class="inputRepeticiones" id="${idRep}">
-            <button class="btnCalcularRM" id="${idbtnCalcularRM}">Calcular RM</button>
-            <h4 id="${idTextoResultadoRM}"> </h4>
-        </article>
-        `
-        nuevaSection.className = 'ejercicio'
-        containerEjercicios.append(nuevaSection)
-    })
+    ejerciciosFiltrados.forEach(ejercicio => ejercicio.style.display = 'flex')
 }
 
 if (buscadorEjercicio) {
     buscadorEjercicio.addEventListener('input', buscarEjercicio)
 }
 
-//Calculo de peso maximo
+//Calculo de peso máximo
 const textoResultadoRMSentadillas = document.querySelector('#textoResultadoRM1')
 const textoResultadoRMPM = document.querySelector('#textoResultadoRM2')
 const textoResultadoRMDominadas = document.querySelector('#textoResultadoRM3')
@@ -277,22 +261,51 @@ const textoResultadoRMPechoPlano = document.querySelector('#textoResultadoRM4')
 
 const calcularRMSentadillas = (peso, numeroReps) => {
     const RMSentadillas = Math.ceil(inputPesoSentadillas.value / (1.0278 - 0.0278 * inputRepSentadillas.value))
-    textoResultadoRMSentadillas.innerHTML = `RM (kg): ${RMSentadillas}`
+    if (!isNaN(RMSentadillas) && inputPesoSentadillas.value != '' && inputRepSentadillas.value != '') {
+        textoResultadoRMSentadillas.innerHTML = `RM (kg): ${RMSentadillas}`
+    } else{
+        alertError.fire({
+            text: 'Debes ingresar dos valores númericos',
+            background: 'url(../img/animalprint.jpg)'
+        })
+    }
 }
 
 const calcularRMPM = (peso, numeroReps) => {
     const RMPM = Math.ceil(inputPesoPM.value / (1.0278 - 0.0278 * inputRepPM.value))
-    textoResultadoRMPM.innerHTML = `RM (kg): ${RMPM}`
+    if (!isNaN(RMPM) && inputPesoPM.value != '' && inputRepPM.value != '') {
+        textoResultadoRMPM.innerHTML = `RM (kg): ${RMPM}`
+    } else{
+        alertError.fire({
+            text: 'Debes ingresar valores númericos',
+            background: 'url(../img/animalprint.jpg)'
+        })
+    }
 }
 
 const calcularRMDominadas = (peso, numeroReps) => {
     const RMDominadas = Math.ceil(inputPesoDominadas.value / (1.0278 - 0.0278 * inputRepDominadas.value))
-    textoResultadoRMDominadas.innerHTML = `RM (kg): ${RMDominadas}`
+    if (!isNaN(RMDominadas) && inputPesoDominadas.value != '' && inputRepDominadas.value != '') {
+        const textoResultadoRMDominadas2 = document.querySelector('#textoResultadoRM3')
+        textoResultadoRMDominadas2.innerHTML = `RM (kg): ${RMDominadas}`
+    } else{
+        alertError.fire({
+            text: 'Debes ingresar valores númericos',
+            background: 'url(../img/animalprint.jpg)'
+        })
+    }
 }
 
 const calcularRMPechoPlano = (peso, numeroReps) => {
     const RMPechoPlano = Math.ceil(inputPesoPechoPlano.value / (1.0278 - 0.0278 * inputRepPechoPlano.value))
-    textoResultadoRMPechoPlano.innerHTML = `RM (kg): ${RMPechoPlano}`
+    if (!isNaN(RMPechoPlano) && inputPesoPechoPlano.value != '' && inputRepPechoPlano.value != '') {
+        textoResultadoRMPechoPlano.innerHTML = `RM (kg): ${RMPechoPlano}`
+    } else{
+        alertError.fire({
+            text: 'Debes ingresar valores númericos',
+            background: 'url(../img/animalprint.jpg)'
+        })
+    }
 }
 
 const inputPesoSentadillas = document.querySelector('#inputPeso1')
@@ -323,7 +336,7 @@ if (btnCalcularRMDominadas) {
 if (btnCalcularRMPechoPlano) {
     btnCalcularRMPechoPlano.addEventListener('click', calcularRMPechoPlano)}
 
-//Cerrar sesion
+//Cerrar sesión
 const btnCerrarSesion = document.querySelector('#btnCerrarSesion')
 
 if (btnCerrarSesion) {
