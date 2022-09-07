@@ -329,11 +329,92 @@ h1 {
 
 .pesosPercepcion {
   grid-area: pesosPercepcion; }
+  .pesosPercepcion .percepcion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "diaRutina tiempoRutina percepcionRutina" "containerBtn containerBtn containerBtn";
+    row-gap: 40px;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 180px;
+    text-align: center; }
+    .pesosPercepcion .percepcion .diaRutina {
+      grid-area: diaRutina;
+      width: 250px;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: #39373b42;
+      border: #1e1d1f;
+      text-align: center;
+      font-weight: bold;
+      color: black;
+      font-size: 14px;
+      letter-spacing: 1px; }
+    .pesosPercepcion .percepcion .tiempoRutina {
+      grid-area: tiempoRutina; }
+      .pesosPercepcion .percepcion .tiempoRutina input {
+        width: 250px;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #39373b42;
+        border: #1e1d1f;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+        font-size: 14px;
+        letter-spacing: 1px; }
+      .pesosPercepcion .percepcion .tiempoRutina input::placeholder {
+        color: black;
+        font-weight: bold; }
+    .pesosPercepcion .percepcion .percepcionRutina {
+      grid-area: percepcionRutina; }
+      .pesosPercepcion .percepcion .percepcionRutina input {
+        width: 250px;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #39373b42;
+        border: #1e1d1f;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+        font-size: 14px;
+        letter-spacing: 1px; }
+      .pesosPercepcion .percepcion .percepcionRutina input::placeholder {
+        color: black;
+        font-weight: bold; }
+    .pesosPercepcion .percepcion .containerBtn {
+      grid-area: containerBtn; }
+      .pesosPercepcion .percepcion .containerBtn .btnRegistroEntrenamiento {
+        width: 250px;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #39373b42;
+        border: #1e1d1f;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+        font-size: 14px;
+        letter-spacing: 1px;
+        width: 200px;
+        background: linear-gradient(to right, #1e1d1f, black);
+        color: #ffffff; }
   .pesosPercepcion .buscador {
     text-align: center; }
     .pesosPercepcion .buscador input {
+      width: 250px;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: rgba(57, 55, 59, 0.259);
       text-align: center;
-      width: 200px; }
+      font-weight: bold;
+      color: black;
+      font-size: 14px;
+      letter-spacing: 1px;
+      border: #1e1d1f; }
+    .pesosPercepcion .buscador input::placeholder {
+      color: black;
+      font-weight: bold; }
   .pesosPercepcion .ejercicios {
     display: flex;
     justify-content: space-around;
@@ -362,38 +443,3 @@ h1 {
           color: white; }
       .pesosPercepcion .ejercicios .ejercicio h4 {
         margin-top: 15px; }
-  .pesosPercepcion .percepcion {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: none;
-    text-align: center;
-    align-items: center;
-    margin-top: 80px;
-    margin-bottom: 180px;
-    text-align: center; }
-    .pesosPercepcion .percepcion .diaRutina {
-      width: 250px;
-      padding: 10px;
-      border-radius: 20px;
-      background-color: #39373b42;
-      border: #1e1d1f; }
-      .pesosPercepcion .percepcion .diaRutina option {
-        text-align: center;
-        font-weight: bold;
-        color: black;
-        font-size: 14px;
-        letter-spacing: 1px; }
-    .pesosPercepcion .percepcion input {
-      width: 250px;
-      padding: 10px;
-      border-radius: 20px;
-      background-color: rgba(57, 55, 59, 0.259);
-      text-align: center;
-      font-weight: bold;
-      color: black;
-      font-size: 14px;
-      letter-spacing: 1px;
-      border: #1e1d1f; }
-    .pesosPercepcion .percepcion input::placeholder {
-      color: black;
-      font-weight: bold; }

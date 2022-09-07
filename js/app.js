@@ -149,12 +149,48 @@ const mostrarDataJugadores = () => {
     `
         })
     }
-    console.log(resultado);
 }
 
 if (nombreJugador || datosJugador) {
     mostrarDataJugadores()
 }
+
+//Percepción del esfuerzo
+const selectDiaRutina = document.querySelector('#selectDiaRutina')
+const inputTiempoRutina = document.querySelector('#inputTiempoRutina')
+const inputPercepcionRutina = document.querySelector('#inputPercepcionRutina')
+const btnRegistroEntrenamiento = document.querySelector('#btnRegistroEntrenamiento')
+const selectedDiaRutina = selectDiaRutina.value
+
+if (btnRegistroEntrenamiento) {
+    btnRegistroEntrenamiento.addEventListener('click', (e) => {
+        e.preventDefault
+        if (selectDiaRutina.value != '' && selectDiaRutina.value != 'Seleccionar' && inputTiempoRutina.value != '' && inputPercepcionRutina.value != '') {
+            Swal.fire({
+                title: '¡Bien entrenado!',
+                text: `Hiciste el ${selectDiaRutina.value}. Te llevó ${inputTiempoRutina.value} minutos y tu percepción del esfuerzo fue ${inputPercepcionRutina.value}.`,
+                background: 'url(../img/animalprint.jpg)',
+                confirmButtonColor: '#000000',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        } else{
+            alertError.fire({
+                text: 'Debes llenar todos los campos',
+                background: 'url(../img/animalprint.jpg)'
+            })
+        }
+    })
+}
+
+/*
+console.log(document.querySelector('#diaRutina option:checked').value)
+
+*/
 
 //Template literal de los ejercicios
 class Ejercicio {
@@ -297,10 +333,3 @@ if (btnCerrarSesion) {
         //"https://manuelsanson.github.io/GymCTM/index.html"
     })
 }
-
-//Percepción del esfuerzo
-/*
-console.log(document.querySelector('#diaRutina option:checked').value)
-
-const tiempoRutina = document.querySelector('#tiempoRutina')
-*/

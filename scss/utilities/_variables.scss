@@ -31,3 +31,16 @@ $fondoGradient: (linear-gradient(to right, #1e1d1f, hsl(0, 0%, 0%)));
         border: 2px solid rgba(0, 0, 0, 0.18) !important;
     }
 }
+
+@mixin inputsPercepcionEsfuerzo {
+    width: 250px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #39373b42;
+    border: #1e1d1f;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
