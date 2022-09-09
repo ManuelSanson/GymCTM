@@ -102,7 +102,7 @@ if (btnIngresar) {
         if (inputLoginUsername.value != '' && inputLoginPassword.value != '') {
             const resultado = users.filter((user) => user.username == inputLoginUsername.value && user.password == inputLoginPassword.value)
             if (resultado.length == 1) {
-                sessionStorage.setItem('inputLoginUsernameStored', inputLoginUsername.value)
+                sessionStorage.setItem('loggedUser', JSON.stringify(resultado[0]))
                 Swal.fire({
                     text: ('Bienvenido ' + inputLoginUsername.value),
                     background: 'url(./img/animalprint.jpg)',
@@ -130,24 +130,18 @@ const nombreJugador = document.querySelector('#nombreJugador')
 const datosJugador = document.querySelector('#datosJugador')
 
 const mostrarDataJugadores = () => {
-    const users = JSON.parse(localStorage.getItem('users'))
-    const inputLoginUsernameStored = sessionStorage.getItem('inputLoginUsernameStored')
-    const resultado = users.filter((user) => user.username == inputLoginUsernameStored)
-    if (resultado.length == 1) {
-        resultado.forEach((dato) => {
-            nombreJugador.innerHTML = `
-                <h4>Hola, ${dato.username}</h4>
+    const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'))
+    nombreJugador.innerHTML = `
+                <h4>Hola, ${loggedUser.username}</h4>
             `
             datosJugador.innerHTML = `
-                <td>${dato.nombreCompleto}</td>
-                <td>${dato.division}</td>
-                <td>${dato.edad}</td>
-                <td>${dato.altura}</td>
-                <td>${dato.peso}</td>
-                <td>${dato.posicion}</td>
+                <td>${loggedUser.nombreCompleto}</td>
+                <td>${loggedUser.division}</td>
+                <td>${loggedUser.edad}</td>
+                <td>${loggedUser.altura}</td>
+                <td>${loggedUser.peso}</td>
+                <td>${loggedUser.posicion}</td>
     `
-        })
-    }
 }
 
 if (nombreJugador || datosJugador) {
