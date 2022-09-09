@@ -141,11 +141,11 @@ const mostrarDataJugadores = () => {
             `
             datosJugador.innerHTML = `
                 <td>${loggedUser.nombreCompleto}</td>
-                <td>${loggedUser.division}</td>
                 <td>${loggedUser.edad}</td>
+                <td>${loggedUser.division}</td>
+                <td>${loggedUser.posicion}</td>
                 <td>${loggedUser.altura}</td>
                 <td>${loggedUser.peso}</td>
-                <td>${loggedUser.posicion}</td>
     `
 }
 
