@@ -39,8 +39,7 @@ const btnRegistrarme = document.querySelector('#btnRegistrarme')
 if (btnRegistrarme) {
     btnRegistrarme.addEventListener('click', (e) => {
         e.preventDefault()
-        location.href="../otherPages/registro.html"
-        //"https://manuelsanson.github.io/GymCTM/otherPages/registro.html"
+        location.href="https://manuelsanson.github.io/GymCTM/otherPages/registro.html"
     })
 }
 
@@ -68,8 +67,7 @@ if (btnConfirmarRegistro) {
                 if (resultado.length == 0) {
                     users.push(newUser)
                     localStorage.setItem('users', JSON.stringify(users))
-                    location.href="../index.html"
-                    //"https://manuelsanson.github.io/GymCTM/index.html"
+                    location.href="https://manuelsanson.github.io/GymCTM/index.html"
                 } else {
                     alertError.fire({
                         text: 'Ya existe un usuario con este nombre de usuario. Por favor, elegí otro.',
@@ -107,8 +105,7 @@ if (btnIngresar) {
                     text: ('Bienvenido ' + inputLoginUsername.value),
                     background: 'url(./img/animalprint.jpg)',
                     confirmButtonColor: '#000000',
-                }) .then(() => location.href="../otherPages/perfilJugador.html"
-                //"https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html"
+                }) .then(() => location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html"
                 )
             } else {
                 alertError.fire({
@@ -336,7 +333,6 @@ const btnCerrarSesion = document.querySelector('#btnCerrarSesion')
 if (btnCerrarSesion) {
     btnCerrarSesion.addEventListener('click', (e) => {
         e.preventDefault()
-        location.href="../index.html"
-        //"https://manuelsanson.github.io/GymCTM/index.html"
+        location.href="https://manuelsanson.github.io/GymCTM/index.html"
     })
 }
