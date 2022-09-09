@@ -67,7 +67,15 @@ if (btnConfirmarRegistro) {
                 if (resultado.length == 0) {
                     users.push(newUser)
                     localStorage.setItem('users', JSON.stringify(users))
-                    location.href="https://manuelsanson.github.io/GymCTM/index.html"
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Registro exitoso',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        background: 'url(../img/animalprint.jpg)',
+                    }) .then(() => location.href="https://manuelsanson.github.io/GymCTM/index.html"
+                    )
                 } else {
                     alertError.fire({
                         text: 'Ya existe un usuario con este nombre de usuario. Por favor, elegí otro.',
