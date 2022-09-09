@@ -4,84 +4,83 @@
     "encabezado"
     "registro"
     ;
-}
-
-.registro{
-    grid-area: registro;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    .formularioRegistro{
-        .formularioDatos{
-            @include formularioStyle;
-            width: 600px;
-            height: 320px;
-            .register {
-                padding-top: 40px;
-                text-align: center;
-                color: black;
-                font-weight: bold;
-                font-size: 23px;
-            }
-            .form1 {
-                padding-top: 40px;
-                .nombreEdad{
-                    display: flex;
-                    justify-content: center;
-                    .camposForm {
-                        @include camposFormularios;
-                        width: 50%;
-                        margin-right: 46px;
+    .registro{
+        grid-area: registro;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .formularioRegistro{
+            .formularioDatos{
+                @include formularioStyle;
+                width: 600px;
+                height: 320px;
+                .register {
+                    padding-top: 40px;
+                    text-align: center;
+                    color: black;
+                    font-weight: bold;
+                    font-size: 23px;
+                }
+                .form1 {
+                    padding-top: 40px;
+                    .nombreEdad{
+                        display: flex;
+                        justify-content: center;
+                        .camposForm {
+                            @include camposFormularios;
+                            width: 50%;
+                            margin-right: 46px;
+                        }
+                    }
+                    .divisionPosicion{
+                        display: flex;
+                        justify-content: center;
+                        .camposForm {
+                            @include camposFormularios;
+                            width: 50%;
+                            margin-right: 46px;
+                        }
+                    }
+                    .alturaPeso{
+                        display: flex;
+                        justify-content: center;
+                        .camposForm {
+                            @include camposFormularios;
+                            width: 50%;
+                            margin-right: 46px;
+                        }
                     }
                 }
-                .divisionPosicion{
-                    display: flex;
-                    justify-content: center;
+            }
+            .formularioUsuario{
+                @include formularioStyle;
+                .register {
+                    padding-top: 40px;
+                    text-align: center;
+                    color: black;
+                    font-weight: bold;
+                    font-size: 23px;
+                }
+                .form1 {
+                    padding-top: 40px;
                     .camposForm {
                         @include camposFormularios;
-                        width: 50%;
-                        margin-right: 46px;
                     }
-                }
-                .alturaPeso{
-                    display: flex;
-                    justify-content: center;
-                    .camposForm {
-                        @include camposFormularios;
-                        width: 50%;
-                        margin-right: 46px;
+                    .submit {
+                        cursor: pointer;
+                        border-radius: 5em;
+                        color: #fff;
+                        background: linear-gradient(to right, #1e1d1f, hsl(0, 0%, 0%));
+                        border: 0;
+                        padding-left: 40px;
+                        padding-right: 40px;
+                        padding-bottom: 10px;
+                        padding-top: 10px;
+                        margin-left: 30%;
+                        font-size: 13px;
+                        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+                        text-decoration: none;
                     }
-                }
-            }
-        }
-        .formularioUsuario{
-            @include formularioStyle;
-            .register {
-                padding-top: 40px;
-                text-align: center;
-                color: black;
-                font-weight: bold;
-                font-size: 23px;
-            }
-            .form1 {
-                padding-top: 40px;
-                .camposForm {
-                    @include camposFormularios;
-                }
-                .submit {
-                    cursor: pointer;
-                    border-radius: 5em;
-                    color: #fff;
-                    background: linear-gradient(to right, #1e1d1f, hsl(0, 0%, 0%));
-                    border: 0;
-                    padding-left: 40px;
-                    padding-right: 40px;
-                    padding-bottom: 10px;
-                    padding-top: 10px;
-                    margin-left: 30%;
-                    font-size: 13px;
-                    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-                    text-decoration: none;
                 }
             }
         }
