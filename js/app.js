@@ -59,7 +59,7 @@ const btnConfirmarRegistro = document.querySelector('#btnConfirmarRegistro')
 if (btnConfirmarRegistro) {
     btnConfirmarRegistro.addEventListener('click', (e) => {
         e.preventDefault()
-        if (inputRegistrationEmail.value != '' && inputRegistrationUsername.value != '' && inputRegistrationPassword.value != '' && inputPasswordConfirmation.value != '' && inputRegistrationNombreCompleto.value != '' && inputRegistrationEdad.value != '' && inputRegistrationDivision.value != '' && inputRegistrationPosicion.value != '' && inputRegistrationAltura.value != '' && inputRegistrationPeso.value != '') {
+        if (inputRegistrationEmail.value != '' && inputRegistrationUsername.value != '' && inputRegistrationPassword.value != '' && inputPasswordConfirmation.value != '' && inputRegistrationNombreCompleto.value != '' && inputRegistrationEdad.value != '' && inputRegistrationDivision.value != 'División' && inputRegistrationPosicion.value != 'Posición' && inputRegistrationAltura.value != '' && inputRegistrationPeso.value != '') {
             if (inputRegistrationPassword.value == inputPasswordConfirmation.value) {
                 const users = JSON.parse(localStorage.getItem('users'))
                 const resultado = users.filter((user) => user.username == inputRegistrationUsername.value)
@@ -74,7 +74,8 @@ if (btnConfirmarRegistro) {
                         showConfirmButton: false,
                         timer: 1500,
                         background: 'url(../img/animalprint.jpg)',
-                    }) .then(() => location.href="https://manuelsanson.github.io/GymCTM/index.html"
+                    }) .then(() => location.href="../index.html"
+                    //"https://manuelsanson.github.io/GymCTM/index.html"
                     )
                 } else {
                     alertError.fire({
@@ -113,7 +114,8 @@ if (btnIngresar) {
                     text: ('Bienvenido ' + inputLoginUsername.value),
                     background: 'url(./img/animalprint.jpg)',
                     confirmButtonColor: '#000000',
-                }) .then(() => location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html"
+                }) .then(() => location.href="../otherPages/perfilJugador.html"
+                //"https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html"
                 )
             } else {
                 alertError.fire({
