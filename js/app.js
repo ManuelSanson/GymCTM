@@ -33,6 +33,16 @@ const traerDataUsuario = async () => {
 }
 addEventListener('load', traerDataUsuario)
 
+//Volver al inicio
+const btnVolver = document.querySelector('#btnVolver')
+
+if (btnVolver) {
+    btnVolver.addEventListener('click', (e) => {
+        e.preventDefault()
+        location.href="https://manuelsanson.github.io/GymCTM/index.html"
+    })
+}
+
 // Acceder a página de registro
 const btnRegistrarme = document.querySelector('#btnRegistrarme')
 
