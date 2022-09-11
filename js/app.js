@@ -84,8 +84,7 @@ if (btnConfirmarRegistro) {
                         showConfirmButton: false,
                         timer: 1500,
                         background: 'url(../img/animalprint.jpg)',
-                    }) .then(() => location.href="../index.html"
-                    //"https://manuelsanson.github.io/GymCTM/index.html"
+                    }) .then(() => location.href="https://manuelsanson.github.io/GymCTM/index.html"
                     )
                 } else {
                     alertError.fire({
@@ -124,8 +123,7 @@ if (btnIngresar) {
                     text: ('Bienvenido ' + inputLoginUsername.value),
                     background: 'url(./img/animalprint.jpg)',
                     confirmButtonColor: '#000000',
-                }) .then(() => location.href="../otherPages/perfilJugador.html"
-                //"https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html"
+                }) .then(() => location.href="https://manuelsanson.github.io/GymCTM/otherPages/perfilJugador.html"
                 )
             } else {
                 alertError.fire({
