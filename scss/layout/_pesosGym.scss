@@ -52,6 +52,10 @@
                     width: 200px;
                     background: $fondoGradient;
                     color: #ffffff;
+                    cursor: pointer;
+                    &:hover{
+                        background: rgb(179, 42, 42);
+                    }
                 }
             }
         }
@@ -101,6 +105,7 @@
                     border-radius: 10px;
                     padding: 8px;
                     margin: 15px;
+                    cursor: pointer;
                     &:hover{
                         background: linear-gradient(to right, #1e1d1f, hsl(0, 0%, 0%));
                         color: white;

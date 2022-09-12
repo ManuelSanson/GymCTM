@@ -7,11 +7,14 @@
         justify-content: space-around;
         list-style-type: none;
         li a{
-            color: #fff;
+            color: black;
             text-decoration: none;
+            background: linear-gradient(to right, #ffffff, hsl(0, 14%, 91%));
+            padding: 3px 30px;
+            border-radius: 20px;
             &:hover{
-                background-color: #fff;
-                color:#1e1d1f;
+                background: rgb(179, 42, 42);
+                color: white;
             }
         }
     }

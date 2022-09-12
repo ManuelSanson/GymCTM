@@ -27,7 +27,12 @@ h1 {
     background-color: #b32a2a;
     color: white;
     border-radius: 20px;
-    padding: 5px; }
+    padding: 8px;
+    cursor: pointer;
+    font-weight: bold; }
+    .encabezado button:hover {
+      background-color: rgba(255, 0, 0, 0.76);
+      color: black; }
 
 .navegador {
   grid-area: navegador;
@@ -38,11 +43,14 @@ h1 {
     justify-content: space-around;
     list-style-type: none; }
     .navegador ul li a {
-      color: #fff;
-      text-decoration: none; }
+      color: black;
+      text-decoration: none;
+      background: linear-gradient(to right, #ffffff, #ebe5e5);
+      padding: 3px 30px;
+      border-radius: 20px; }
       .navegador ul li a:hover {
-        background-color: #fff;
-        color: #1e1d1f; }
+        background: #b32a2a;
+        color: white; }
 
 .pie {
   grid-area: pie;
@@ -136,6 +144,10 @@ h1 {
             box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
             text-decoration: none;
             text-align: center; }
+            .containerIndex .formularioLogin .formulario .form1 .ingresoRegistro .submit:hover {
+              font-weight: bold;
+              background: #b32a2a;
+              color: white; }
 
 .containerRegistro {
   display: grid;
@@ -282,6 +294,10 @@ h1 {
           font-size: 13px;
           box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
           text-decoration: none; }
+          .containerRegistro .registro .formularioRegistro .formularioUsuario .form1 .submit:hover {
+            font-weight: bold;
+            background: #b32a2a;
+            color: white; }
 
 .containerPerfil {
   display: grid;
@@ -394,7 +410,10 @@ h1 {
           letter-spacing: 1px;
           width: 200px;
           background: linear-gradient(to right, #1e1d1f, black);
-          color: #ffffff; }
+          color: #ffffff;
+          cursor: pointer; }
+          .containerPesosPercepcion .pesosPercepcion .percepcion .containerBtn .btnRegistroEntrenamiento:hover {
+            background: #b32a2a; }
     .containerPesosPercepcion .pesosPercepcion .buscador {
       text-align: center; }
       .containerPesosPercepcion .pesosPercepcion .buscador input {
@@ -435,7 +454,8 @@ h1 {
         .containerPesosPercepcion .pesosPercepcion .containerEjercicios .ejercicioArticle button {
           border-radius: 10px;
           padding: 8px;
-          margin: 15px; }
+          margin: 15px;
+          cursor: pointer; }
           .containerPesosPercepcion .pesosPercepcion .containerEjercicios .ejercicioArticle button:hover {
             background: linear-gradient(to right, #1e1d1f, black);
             color: white; }
