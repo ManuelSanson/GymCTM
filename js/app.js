@@ -174,25 +174,21 @@ if (btnRegistroEntrenamiento) {
         e.preventDefault
         if (selectDiaRutina.value != '' && selectDiaRutina.value != 'Seleccionar' && inputTiempoRutina.value != '' && inputPercepcionRutina.value != '') {
             if (inputPercepcionRutina.value > 0 && inputPercepcionRutina.value <= 10) {
-                if (Number(inputTiempoRutina.value)) {
-                    Swal.fire({
-                        title: '¡Bien entrenado!',
-                        text: `Hiciste el ${selectDiaRutina.value}. Te llevó ${inputTiempoRutina.value} minutos y tu percepción del esfuerzo fue ${inputPercepcionRutina.value}.`,
-                        background: 'url(../img/animalprint.jpg)',
-                        confirmButtonColor: '#000000',
-                        showClass: {
-                            popup: 'animate__animated animate__fadeInDown'
-                        },
-                        hideClass: {
-                            popup: 'animate__animated animate__fadeOutUp'
-                        }
-                    })
-                } else {
-                    alertError.fire({
-                        text: 'El tiempo debe ser un valor numérico',
-                        background: 'url(../img/animalprint.jpg)'
-                    })
-                }
+                Number(inputTiempoRutina.value) ? Swal.fire({
+                    title: '¡Bien entrenado!',
+                    text: `Hiciste el ${selectDiaRutina.value}. Te llevó ${inputTiempoRutina.value} minutos y tu percepción del esfuerzo fue ${inputPercepcionRutina.value}.`,
+                    background: 'url(../img/animalprint.jpg)',
+                    confirmButtonColor: '#000000',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                }) : alertError.fire({
+                    text: 'El tiempo debe ser un valor numérico',
+                    background: 'url(../img/animalprint.jpg)'
+                })
             } else {
                 alertError.fire({
                     text: 'La percepción debe ser del 1 al 10',
@@ -208,7 +204,7 @@ if (btnRegistroEntrenamiento) {
     })
 }
 
-//Template literal de los ejercicios
+//Creación y renderización de los ejercicios
 class Ejercicio {
     constructor(id, nombre) {
         this.id = id
