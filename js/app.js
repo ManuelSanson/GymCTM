@@ -147,7 +147,7 @@ const datosJugador = document.querySelector('#datosJugador')
 const mostrarDataJugadores = () => {
     const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'))
     nombreJugador.innerHTML = `
-                <h4>Hola, ${loggedUser.username}</h4>
+                <h4>Hola, ${loggedUser.username}!</h4>
             `
             datosJugador.innerHTML = `
                 <td>${loggedUser.nombreCompleto}</td>
@@ -174,18 +174,25 @@ if (btnRegistroEntrenamiento) {
         e.preventDefault
         if (selectDiaRutina.value != '' && selectDiaRutina.value != 'Seleccionar' && inputTiempoRutina.value != '' && inputPercepcionRutina.value != '') {
             if (inputPercepcionRutina.value > 0 && inputPercepcionRutina.value <= 10) {
-                Swal.fire({
-                    title: '¡Bien entrenado!',
-                    text: `Hiciste el ${selectDiaRutina.value}. Te llevó ${inputTiempoRutina.value} minutos y tu percepción del esfuerzo fue ${inputPercepcionRutina.value}.`,
-                    background: 'url(../img/animalprint.jpg)',
-                    confirmButtonColor: '#000000',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
-                })
+                if (Number(inputTiempoRutina.value)) {
+                    Swal.fire({
+                        title: '¡Bien entrenado!',
+                        text: `Hiciste el ${selectDiaRutina.value}. Te llevó ${inputTiempoRutina.value} minutos y tu percepción del esfuerzo fue ${inputPercepcionRutina.value}.`,
+                        background: 'url(../img/animalprint.jpg)',
+                        confirmButtonColor: '#000000',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    })
+                } else {
+                    alertError.fire({
+                        text: 'El tiempo debe ser un valor numérico',
+                        background: 'url(../img/animalprint.jpg)'
+                    })
+                }
             } else {
                 alertError.fire({
                     text: 'La percepción debe ser del 1 al 10',

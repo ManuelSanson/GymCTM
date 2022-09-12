@@ -333,7 +333,7 @@ h1 {
       row-gap: 40px;
       align-items: center;
       margin-top: 80px;
-      margin-bottom: 180px;
+      margin-bottom: 120px;
       text-align: center; }
       .containerPesosPercepcion .pesosPercepcion .percepcion .diaRutina {
         grid-area: diaRutina;
@@ -440,4 +440,5 @@ h1 {
             background: linear-gradient(to right, #1e1d1f, black);
             color: white; }
         .containerPesosPercepcion .pesosPercepcion .containerEjercicios .ejercicioArticle h4 {
-          margin-top: 15px; }
+          margin-top: 15px;
+          min-height: 25px; }
