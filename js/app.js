@@ -27,6 +27,7 @@ const traerDataUsuario = async () => {
     } catch (error) {
         alertError.fire({
             text: 'Lo sentimos, ocurrió un error. Intentalo nuevamente.',
+            background: 'url(./img/animalprint.jpg)',
         })
         console.log(error)
     }
