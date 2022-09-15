@@ -13,22 +13,22 @@ const traerDataUsuario = async () => {
 
     if (existingUsers && existingUsers != []) {
         return
-    } else { 
-        try {
-            const response = await fetch('../data/jugadores.json')
-            const dataUsuario = await response.json()
-            dataUsuario.forEach((dato) => {
-                users.push(dato)
-            })
-            localStorage.setItem('users', JSON.stringify(users))
-    
-        } catch (error) {
-            alertError.fire({
-                text: 'Lo sentimos, ocurrió un error. Intentalo nuevamente.',
-                background: 'url(./img/animalprint.jpg)',
-            })
-            console.log(error)
-        }
+    }
+
+    try {
+        const response = await fetch('./data/jugadores.json')
+        const dataUsuario = await response.json()
+        dataUsuario.forEach((dato) => {
+            users.push(dato)
+        })
+        localStorage.setItem('users', JSON.stringify(users))
+
+    } catch (error) {
+        alertError.fire({
+            text: 'Lo sentimos, ocurrió un error. Intentalo nuevamente.',
+            background: 'url(./img/animalprint.jpg)',
+        })
+        console.log(error)
     }
 }
 addEventListener('load', traerDataUsuario)
