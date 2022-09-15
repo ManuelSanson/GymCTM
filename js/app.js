@@ -33,16 +33,6 @@ const traerDataUsuario = async () => {
 }
 addEventListener('load', traerDataUsuario)
 
-//Volver al inicio
-const btnVolver = document.querySelector('#btnVolver')
-
-if (btnVolver) {
-    btnVolver.addEventListener('click', (e) => {
-        e.preventDefault()
-        location.href="https://manuelsanson.github.io/GymCTM/index.html"
-    })
-}
-
 // Acceder a página de registro
 const btnRegistrarme = document.querySelector('#btnRegistrarme')
 
@@ -50,6 +40,16 @@ if (btnRegistrarme) {
     btnRegistrarme.addEventListener('click', (e) => {
         e.preventDefault()
         location.href="https://manuelsanson.github.io/GymCTM/otherPages/registro.html"
+    })
+}
+
+//Volver al inicio
+const btnVolver = document.querySelector('#btnVolver')
+
+if (btnVolver) {
+    btnVolver.addEventListener('click', (e) => {
+        e.preventDefault()
+        location.href="https://manuelsanson.github.io/GymCTM/index.html"
     })
 }
 
@@ -265,7 +265,7 @@ if (buscadorEjercicio) {
     buscadorEjercicio.addEventListener('input', buscarEjercicio)
 }
 
-//Calculo de peso máximo
+//Cálculo de peso máximo
 const textoResultadoRMSentadillas = document.querySelector('#textoResultadoRM1')
 const textoResultadoRMPM = document.querySelector('#textoResultadoRM2')
 const textoResultadoRMDominadas = document.querySelector('#textoResultadoRM3')
