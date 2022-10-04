@@ -462,3 +462,128 @@ h1 {
         .containerPesosPercepcion .pesosPercepcion .containerEjercicios .ejercicioArticle h4 {
           margin-top: 15px;
           min-height: 25px; }
+
+@media screen and (min-width: 391px) and (max-width: 576px) {
+  .encabezado {
+    font-size: 14px;
+    justify-content: center; }
+    .encabezado h2 {
+      margin: auto 25px; }
+    .encabezado button {
+      margin-left: 380px; }
+  .containerRegistro .registro {
+    flex-direction: column; }
+    .containerRegistro .registro .formularioRegistro .formularioDatos {
+      height: 550px;
+      width: 450px; }
+      .containerRegistro .registro .formularioRegistro .formularioDatos .form1 .nombreEdad {
+        flex-direction: column;
+        align-items: center; }
+      .containerRegistro .registro .formularioRegistro .formularioDatos .form1 .divisionPosicion {
+        flex-direction: column;
+        align-items: center; }
+      .containerRegistro .registro .formularioRegistro .formularioDatos .form1 .alturaPeso {
+        flex-direction: column;
+        align-items: center; }
+  .pie {
+    font-size: 12px; }
+  .containerPerfil .encabezado button {
+    margin-top: -45px;
+    font-size: 11px;
+    margin-left: 400px; }
+  .containerPerfil .perfil .perfilJugador {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .containerPerfil .perfil .perfilJugador .cardJugador {
+      margin-bottom: 50px; }
+      .containerPerfil .perfil .perfilJugador .cardJugador .nombreJugador {
+        font-size: 14px; }
+    .containerPerfil .perfil .perfilJugador .tablaJugador {
+      width: 90%;
+      font-size: 14px; }
+  .containerPesosPercepcion .encabezado button {
+    margin-top: -45px;
+    font-size: 11px;
+    margin-left: 400px; }
+  .containerPesosPercepcion .pesosPercepcion .percepcion {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: "diaRutina" "tiempoRutina" "percepcionRutina" "containerBtn"; }
+  .containerPesosPercepcion .containerEjercicios {
+    flex-wrap: wrap; }
+    .containerPesosPercepcion .containerEjercicios .ejercicio {
+      margin: 30px; } }
+
+@media screen and (min-width: 0px) and (max-width: 390px) {
+  .encabezado {
+    font-size: 12px;
+    justify-content: center; }
+    .encabezado h2 {
+      margin: auto 15px; }
+    .encabezado button {
+      margin-left: 280px;
+      padding: 6px;
+      font-size: 10px; }
+  .containerIndex .formularioLogin .formulario {
+    width: 340px; }
+    .containerIndex .formularioLogin .formulario .sign {
+      font-size: 19px; }
+  .containerRegistro .registro {
+    flex-direction: column; }
+    .containerRegistro .registro .formularioRegistro .formularioDatos {
+      height: 550px;
+      width: 340px; }
+      .containerRegistro .registro .formularioRegistro .formularioDatos .register {
+        font-size: 19px; }
+      .containerRegistro .registro .formularioRegistro .formularioDatos .form1 .nombreEdad {
+        flex-direction: column;
+        align-items: center; }
+        .containerRegistro .registro .formularioRegistro .formularioDatos .form1 .nombreEdad .camposForm {
+          font-size: 12px; }
+      .containerRegistro .registro .formularioRegistro .formularioDatos .form1 .divisionPosicion {
+        flex-direction: column;
+        align-items: center; }
+        .containerRegistro .registro .formularioRegistro .formularioDatos .form1 .divisionPosicion .camposForm {
+          font-size: 12px; }
+      .containerRegistro .registro .formularioRegistro .formularioDatos .form1 .alturaPeso {
+        flex-direction: column;
+        align-items: center; }
+        .containerRegistro .registro .formularioRegistro .formularioDatos .form1 .alturaPeso .camposForm {
+          font-size: 12px; }
+    .containerRegistro .registro .formularioRegistro .formularioUsuario {
+      width: 340px; }
+      .containerRegistro .registro .formularioRegistro .formularioUsuario .register {
+        font-size: 19px; }
+      .containerRegistro .registro .formularioRegistro .formularioUsuario .form1 .camposForm {
+        font-size: 12px; }
+  .navegador {
+    font-size: 12px; }
+    .navegador ul {
+      margin: 5px 60px; }
+  .pie {
+    font-size: 8px; }
+  .containerPerfil .encabezado button {
+    margin-top: -45px; }
+  .containerPerfil .perfil .perfilJugador {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .containerPerfil .perfil .perfilJugador .cardJugador {
+      margin-bottom: 40px; }
+      .containerPerfil .perfil .perfilJugador .cardJugador .nombreJugador {
+        font-size: 12px; }
+    .containerPerfil .perfil .perfilJugador .tablaJugador {
+      width: 90%;
+      font-size: 10px; }
+  .containerPesosPercepcion .encabezado button {
+    margin-top: -45px; }
+  .containerPesosPercepcion .pesosPercepcion .percepcion {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: "diaRutina" "tiempoRutina" "percepcionRutina" "containerBtn"; }
+  .containerPesosPercepcion .containerEjercicios {
+    flex-wrap: wrap; }
+    .containerPesosPercepcion .containerEjercicios .articleEjercicio .ejercicio {
+      margin: 10px;
+      width: 35%; } }

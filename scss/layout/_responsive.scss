@@ -1,0 +1,239 @@
+@media screen and (min-width: 391px) and (max-width: 576px) {
+    .encabezado {
+        font-size: 14px;
+        justify-content: center;
+        h2 {
+            margin: auto 25px;
+        }
+        button {
+            margin-left: 380px;
+        }
+    }
+
+    .containerRegistro {
+        .registro {
+            flex-direction: column;
+            .formularioRegistro{
+                .formularioDatos{
+                    height: 550px;
+                    width: 450px;
+                    .form1 {
+                        .nombreEdad {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .divisionPosicion {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .alturaPeso {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pie {
+        font-size: 12px;
+    }
+
+    .containerPerfil {
+        .encabezado {
+            button {
+                margin-top: -45px;
+                font-size: 11px;
+                margin-left: 400px;
+            }
+        }
+        .perfil {
+            .perfilJugador {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .cardJugador {
+                    margin-bottom: 50px;
+                    .nombreJugador {
+                        font-size: 14px;
+                    }
+                }
+                .tablaJugador {
+                    width: 90%;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .containerPesosPercepcion {
+        .encabezado {
+            button {
+                margin-top: -45px;
+                font-size: 11px;
+                margin-left: 400px;
+            }
+        }
+        .pesosPercepcion{
+            .percepcion {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-areas:
+                "diaRutina"
+                "tiempoRutina"
+                "percepcionRutina"
+                "containerBtn"
+            }
+        }
+        .containerEjercicios{
+            flex-wrap: wrap;
+            .ejercicio {
+                margin: 30px;
+            }
+        }
+    }
+
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 390px) {
+    .encabezado {
+        font-size: 12px;
+        justify-content: center;
+        h2 {
+            margin: auto 15px;
+        }
+        button {
+            margin-left: 280px;
+            padding: 6px;
+            font-size: 10px;
+        }
+    }
+
+    .containerIndex {
+        .formularioLogin {
+            .formulario {
+                width: 340px;
+                .sign {
+                    font-size: 19px;
+                }
+            }
+        }
+    }
+
+    .containerRegistro {
+        .registro {
+            flex-direction: column;
+            .formularioRegistro{
+                .formularioDatos{
+                    height: 550px;
+                    width: 340px;
+                    .register {
+                        font-size: 19px;
+                    }
+                    .form1 {
+                        .nombreEdad {
+                            flex-direction: column;
+                            align-items: center;
+                            .camposForm {
+                                font-size: 12px;
+                            }
+                        }
+                        .divisionPosicion {
+                            flex-direction: column;
+                            align-items: center;
+                            .camposForm {
+                                font-size: 12px;
+                            }
+                        }
+                        .alturaPeso {
+                            flex-direction: column;
+                            align-items: center;
+                            .camposForm {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+                .formularioUsuario {
+                    width: 340px;
+                    .register {
+                        font-size: 19px;
+                    }
+                    .form1 {
+                        .camposForm {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .navegador {
+        font-size: 12px;
+        ul{ 
+            margin: 5px 60px;
+        }
+    }
+
+    .pie {
+        font-size: 8px;
+    }
+
+    .containerPerfil {
+        .encabezado {
+            button {
+                margin-top: -45px;
+            }
+        }
+        .perfil {
+            .perfilJugador {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .cardJugador {
+                    margin-bottom: 40px;
+                    .nombreJugador {
+                        font-size: 12px;
+                    }
+                }
+                .tablaJugador {
+                    width: 90%;
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .containerPesosPercepcion {
+        .encabezado {
+            button {
+                margin-top: -45px;
+            }
+        }
+        .pesosPercepcion{
+            .percepcion {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-areas:
+                "diaRutina"
+                "tiempoRutina"
+                "percepcionRutina"
+                "containerBtn"
+            }
+        }
+        .containerEjercicios{
+            flex-wrap: wrap;
+            .articleEjercicio {
+                .ejercicio {
+                    margin: 10px;
+                    width: 35%;
+                }
+
+            }
+        }
+    }
+
+}
