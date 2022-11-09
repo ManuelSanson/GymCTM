@@ -1,4 +1,24 @@
-# GymCTM
-Proyecto Final para Curso de JavaScript de Coderhouse
+# CTM Rugby Gym App
 
-App para Gimansio para que los jugadores registren sus datos e información relacionada con el gimansio.
+### Final project for Coderhouse JavaScript course
+
+Gym App for players to register their data and gym/related info.
+
+This project was created using:
+- HTML
+- CSS
+- SASS
+- JavaScript
+- Sweet Alert
+
+Full responsive design
+
+
+## Deployment 
+
+[manuelsanson.github.io/GymCTM/](https://manuelsanson.github.io/GymCTM/)
+
+
+## Demo
+
+![CTM Rugby Gym App demo](./demo/projectDemo.gif)
